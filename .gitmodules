@@ -1,3 +1,6 @@
 [submodule "doc/m_css"]
 	path = doc/m_css
 	url = https://github.com/mosra/m.css
+[submodule "lib/eigen/eigen-3.3.5"]
+	path = lib/eigen/eigen-3.3.5
+	url = ./lib/eigen/eigen-3.3.5
