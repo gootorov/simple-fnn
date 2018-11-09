@@ -13,6 +13,9 @@ file(GLOB HEADER_FILES include/*.h)
 # eigen
 find_package(Eigen3 3.3 REQUIRED NO_MODULE PATHS lib/eigen/eigen-3.3.5/build)
 
+# mnist
+include_directories(lib/mnist/include)
+
 add_executable(neural_net ${SOURCE_FILES} ${HEADER_FILES})
 
 # link libraries
