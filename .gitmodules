@@ -4,3 +4,6 @@
 [submodule "lib/eigen/eigen-3.3.5"]
 	path = lib/eigen/eigen-3.3.5
 	url = ./lib/eigen/eigen-3.3.5
+[submodule "lib/mnist"]
+	path = lib/mnist
+	url = https://github.com/wichtounet/mnist
