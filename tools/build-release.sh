@@ -5,7 +5,7 @@ tools_path="$(cd "$(dirname "$0")" ; pwd -P)"
 project_root="$(cd ${tools_path}/.. ; pwd -P)"
 
 cd "${project_root}/build"
-cmake -DCMAKE_BUILD_TYPE="Debug" ../
+cmake -DCMAKE_BUILD_TYPE="Release" ../
 cd - &>/dev/null
 
 cd "${project_root}"

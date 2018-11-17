@@ -4,10 +4,10 @@ set -e
 tools_path="$(cd "$(dirname "$0")" ; pwd -P)"
 project_root="$(cd ${tools_path}/.. ; pwd -P)"
 
-cd "${project_root}/build"
-cmake -DCMAKE_BUILD_TYPE="Debug" ../
+cd "${tools_path}"
+./build-release.sh
 cd - &>/dev/null
 
 cd "${project_root}"
-cmake --build build/
+./build/neural_net
 cd - &>/dev/null
