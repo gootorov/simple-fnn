@@ -5,8 +5,33 @@
 #include "mnist/mnist_reader.hpp"
 #include "mnist/mnist_utils.hpp"
 
+#include "network.hpp"
+
 double normalize(double pixel) {
     return pixel / 255.0;
+}
+
+void load_data(std::vector<std::vector<double>>& source, std::vector<Eigen::VectorXd>& target) {
+    for (auto& image : source) {
+        target.push_back(Eigen::VectorXd::Map(image.data(), image.size()));
+    }
+
+    // normalize values
+    for (auto& image : target) {
+        image = image.unaryExpr(&normalize);
+    }
+}
+
+// converts "1" into [0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+void vectorize_labels(std::vector<Eigen::VectorXd>& vectorized_labels, std::vector<uint8_t>& labels) {
+    for (const auto& _label : labels) {
+        auto label = static_cast<std::size_t>(_label);
+
+        Eigen::VectorXd vectorized = Eigen::VectorXd::Zero(10);
+        vectorized(label) = 1.0;
+
+        vectorized_labels.push_back(vectorized);
+    }
 }
 
 int main() {
@@ -16,20 +41,19 @@ int main() {
     // convert std::vector's to Eigen::vector's.
     std::vector<Eigen::VectorXd> training_images{};
     std::vector<Eigen::VectorXd> test_images{};
-    for (auto& image : mnist.training_images) {
-        training_images.push_back(Eigen::VectorXd::Map(image.data(), image.size()));
-    }
-    for (auto& image : mnist.test_images) {
-        test_images.push_back(Eigen::VectorXd::Map(image.data(), image.size()));
-    }
+    load_data(mnist.training_images, training_images);
+    load_data(mnist.test_images, test_images);
 
-    // normalize values
-    for (auto& image : training_images) {
-        image = image.unaryExpr(&normalize);
-    }
-    for (auto& image : test_images) {
-        image = image.unaryExpr(&normalize);
-    }
+    // vectorize labels
+    std::vector<Eigen::VectorXd> training_labels{};
+    std::vector<Eigen::VectorXd> test_labels{};
+    vectorize_labels(training_labels, mnist.training_labels);
+    vectorize_labels(test_labels, mnist.test_labels);
+
+    auto network = Network(2, 16);
+    //auto result = network.forward_propagate(training_images[0]);
+
+    network.cost(training_images, training_labels);
 
     return 0;
 }
