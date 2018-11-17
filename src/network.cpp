@@ -24,3 +24,20 @@ Eigen::VectorXd Network::forward_propagate(const Eigen::VectorXd input) const {
 
     return image;
 }
+
+double Network::cost(
+        std::vector<Eigen::VectorXd>& training_data,
+        std::vector<Eigen::VectorXd>& labels) const
+{
+    double cost{};
+
+    for (std::size_t i = 0; i < training_data.size(); i++) {
+        auto image = training_data[i];
+        auto label = labels[i];
+
+        auto prediction = forward_propagate(image);
+        cost += (label - prediction).squaredNorm();
+    }
+
+    return cost / training_data.size();
+}
