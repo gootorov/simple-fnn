@@ -21,10 +21,10 @@ public:
 
     /// @param width The width of the Layer, i.e. the number
     /// of Neurons in this Layer.
-    Layer(std::size_t width);
+    Layer(std::size_t width, std::size_t width_prev_layer);
 
     /// @param bias The bias used to initialize Neurons in this layer.
-    Layer(std::size_t width, double bias);
+    Layer(std::size_t width, std::size_t width_prev_layer, double bias);
 
     const Eigen::VectorXd& get_neurons() const;
 
