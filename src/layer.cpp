@@ -13,9 +13,13 @@ Layer::Layer(std::size_t width, std::size_t width_prev_layer) :
     weights{width, width_prev_layer},
     neurons{width}
 {
-    this->neurons.fill(random());
+    auto rand = [this](double) -> double {
+        return this->random();
+    };
 
-    this->weights.fill(random());
+    // Initialize weights and biases to random values.
+    this->neurons = neurons.unaryExpr(rand);
+    this->weights = weights.unaryExpr(rand);
 }
 
 Layer::Layer(std::size_t width, std::size_t width_prev_layer, double bias) :
@@ -24,7 +28,11 @@ Layer::Layer(std::size_t width, std::size_t width_prev_layer, double bias) :
 {
     this->neurons.fill(bias);
 
-    this->weights.fill(random());
+    // Initialize weights and to random values.
+    auto rand = [this](double) -> double {
+        return this->random();
+    };
+    this->weights = weights.unaryExpr(rand);
 }
 
 void Layer::forward_propagate(Eigen::VectorXd& input) const {
@@ -33,7 +41,5 @@ void Layer::forward_propagate(Eigen::VectorXd& input) const {
     };
 
     // propagate the vector
-    input = weights * input + neurons;
-    // apply the sigmoid fn to each component.
-    input = input.unaryExpr(sigmoid);
+    input = (weights * input + neurons).unaryExpr(sigmoid);
 }
