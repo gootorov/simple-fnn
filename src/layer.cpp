@@ -36,8 +36,8 @@ Layer::Layer(std::size_t width, std::size_t width_prev_layer, double bias) :
 }
 
 void Layer::forward_propagate(Eigen::VectorXd& input) const {
-    auto sigmoid = [](auto component) {
-        return 1 / (1 + 1 / std::exp(component));
+    auto sigmoid = [](auto component) -> double {
+        return 1.0 / (1.0 + 1.0 / std::exp(component));
     };
 
     // propagate the vector
