@@ -23,6 +23,13 @@ int main() {
         test_images.push_back(Eigen::VectorXd::Map(image.data(), image.size()));
     }
 
-    //mnist::binarize_dataset(mnist);
+    // normalize values
+    for (auto& image : training_images) {
+        image = image.unaryExpr(&normalize);
+    }
+    for (auto& image : test_images) {
+        image = image.unaryExpr(&normalize);
+    }
+
     return 0;
 }
