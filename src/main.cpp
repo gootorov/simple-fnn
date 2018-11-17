@@ -1,19 +1,28 @@
 #include <iostream>
-#include <vector>
+
+#include <Eigen/Core>
 
 #include "mnist/mnist_reader.hpp"
+#include "mnist/mnist_utils.hpp"
 
-#include <Eigen/Dense>
-using Eigen::MatrixXd;
+double normalize(double pixel) {
+    return pixel / 255.0;
+}
 
 int main() {
-    MatrixXd m(2,2);
-    m(0,0) = 3;
-    m(1,0) = 2.5;
-    m(0,1) = -1;
-    m(1,1) = m(1,0) + m(0,1);
-    std::cout << m << std::endl;
+    // load mnist data
+    auto mnist = mnist::read_dataset<std::vector, std::vector, double, uint8_t>(MNIST_DATA_LOCATION);
 
-    auto dataset = mnist::read_dataset<std::vector, std::vector, uint8_t, uint8_t>();
+    // convert std::vector's to Eigen::vector's.
+    std::vector<Eigen::VectorXd> training_images{};
+    std::vector<Eigen::VectorXd> test_images{};
+    for (auto& image : mnist.training_images) {
+        training_images.push_back(Eigen::VectorXd::Map(image.data(), image.size()));
+    }
+    for (auto& image : mnist.test_images) {
+        test_images.push_back(Eigen::VectorXd::Map(image.data(), image.size()));
+    }
+
+    //mnist::binarize_dataset(mnist);
     return 0;
 }
