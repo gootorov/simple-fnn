@@ -14,9 +14,14 @@ file(GLOB HEADER_FILES include/*.h)
 find_package(Eigen3 3.3 REQUIRED NO_MODULE PATHS lib/eigen/eigen-3.3.5/build)
 
 # mnist
-include_directories(lib/mnist/include)
+find_package(MNIST PATHS lib/mnist)
+#include_directories(lib/mnist/include)
+include_directories(${MNIST_INCLUDE_DIR})
 
 add_executable(neural_net ${SOURCE_FILES} ${HEADER_FILES})
 
 # link libraries
 target_link_libraries(neural_net Eigen3::Eigen)
+
+# Pass MNIST data to the neural_net
+target_compile_definitions(neural_net PRIVATE MNIST_DATA_LOCATION="${MNIST_DATA_DIR}")
