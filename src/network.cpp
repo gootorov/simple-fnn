@@ -13,20 +13,14 @@ Network::Network(std::size_t layers, std::size_t width) :layers{layers, Layer{wi
     this->layers.push_back(Layer{10, width});
 }
 
-void Network::forward_propagate(const Eigen::VectorXd& input) {
-    auto sigmoid = [](auto neuron) {
-        return 1 / (1 + 1 / std::exp(neuron));
-    };
+Eigen::VectorXd Network::forward_propagate(const Eigen::VectorXd input) const {
+    // make a copy of the vector we're going to propagate.
+    auto image = input;
 
-    auto output = input;
-    std::size_t is_first = 0;
-    for (auto& layer : layers) {
-        // Ugly hack to skip the first layer.
-        if (is_first++ == 0) {
-            continue;
-        }
-
-        output = this->weights * output + layer.get_neurons();
-        output = output.unaryExpr(sigmoid);
+    // propagate that vector.
+    for (const auto& layer : layers) {
+        layer.forward_propagate(image);
     }
+
+    return image;
 }

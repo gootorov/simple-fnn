@@ -27,10 +27,13 @@ Layer::Layer(std::size_t width, std::size_t width_prev_layer, double bias) :
     this->weights.fill(random());
 }
 
-const Eigen::VectorXd& Layer::get_neurons() const {
-    return this->neurons;
-}
+void Layer::forward_propagate(Eigen::VectorXd& input) const {
+    auto sigmoid = [](auto component) {
+        return 1 / (1 + 1 / std::exp(component));
+    };
 
-Eigen::VectorXd& Layer::get_neurons_mut() {
-    return this->neurons;
+    // propagate the vector
+    input = weights * input + neurons;
+    // apply the sigmoid fn to each component.
+    input = input.unaryExpr(sigmoid);
 }

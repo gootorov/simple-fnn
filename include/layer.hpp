@@ -26,9 +26,7 @@ public:
     /// @param bias The bias used to initialize Neurons in this layer.
     Layer(std::size_t width, std::size_t width_prev_layer, double bias);
 
-    const Eigen::VectorXd& get_neurons() const;
-
-    Eigen::VectorXd& get_neurons_mut();
+    void forward_propagate(Eigen::VectorXd& input) const;
 };
 
 #endif

@@ -15,7 +15,7 @@ public:
 
     Network(std::size_t layers, std::size_t width);
 
-    void forward_propagate(const Eigen::VectorXd& input);
+    Eigen::VectorXd forward_propagate(const Eigen::VectorXd input) const;
 };
 
 #endif
