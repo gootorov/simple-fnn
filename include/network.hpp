@@ -15,7 +15,7 @@ public:
 
     Network(std::size_t layers, std::size_t width);
 
-    Eigen::VectorXd forward_propagate(const Eigen::VectorXd& input) const;
+    Eigen::VectorXd forward_propagate(Eigen::VectorXd input) const;
 
     double cost(std::vector<Eigen::VectorXd>& training_data, std::vector<Eigen::VectorXd>& labels) const;
 };

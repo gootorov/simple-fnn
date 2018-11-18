@@ -13,10 +13,7 @@ Network::Network(std::size_t layers, std::size_t width) :layers{layers, Layer{wi
     this->layers.push_back(Layer{10, width});
 }
 
-Eigen::VectorXd Network::forward_propagate(const Eigen::VectorXd& input) const {
-    // make a copy of the vector we're going to propagate.
-    auto image = input;
-
+Eigen::VectorXd Network::forward_propagate(Eigen::VectorXd image) const {
     // propagate that vector.
     for (const auto& layer : layers) {
         layer.forward_propagate(image);
