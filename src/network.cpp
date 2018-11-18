@@ -7,7 +7,7 @@
 Network::Network(std::size_t layers, std::size_t width) :layers{layers, Layer{width, width}} {
     // The biases of neurons in the first layer
     // should be initialized to 0 and its width must be 28 x 28 = 784.
-    this->layers.insert(this->layers.begin(), Layer{width, 784, 0});
+    this->layers.insert(this->layers.begin(), Layer{width, 784});
 
     // The last layer always has the width of 10.
     this->layers.push_back(Layer{10, width});
