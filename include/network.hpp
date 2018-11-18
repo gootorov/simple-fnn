@@ -5,6 +5,9 @@
 
 #include "layer.hpp"
 
+using TrainingData = std::vector<Eigen::VectorXd>;
+using Labels = std::vector<Eigen::VectorXd>;
+
 class Network {
 private:
     /// @brief Layers of the Network.
@@ -17,7 +20,7 @@ public:
 
     Eigen::VectorXd forward_propagate(Eigen::VectorXd input) const;
 
-    double cost(std::vector<Eigen::VectorXd>& training_data, std::vector<Eigen::VectorXd>& labels) const;
+    double cost(const TrainingData& training_data, const Labels& labels) const;
 };
 
 #endif
