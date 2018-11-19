@@ -51,9 +51,9 @@ int main() {
     vectorize_labels(test_labels, mnist.test_labels);
 
     auto network = Network(2, 16);
-    //auto result = network.forward_propagate(training_images[0]);
+    std::cout << network.forward_propagate(training_images[0]).sum() << "\n";
 
-    network.cost(training_images, training_labels);
+    std::cout << network.cost(training_images, training_labels) << "\n";
 
     return 0;
 }
