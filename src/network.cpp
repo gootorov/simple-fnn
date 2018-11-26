@@ -4,7 +4,10 @@
 #include "network.hpp"
 #include "layer.hpp"
 
-Network::Network(std::size_t layers, std::size_t width) :layers{layers, Layer{width, width}} {
+Network::Network(std::size_t layers, std::size_t width, double learning_rate) :
+    layers{layers, Layer{width, width}},
+    learning_rate{learning_rate}
+{
     // The biases of neurons in the first layer
     // should be initialized to 0 and its width must be 28 x 28 = 784.
     this->layers.insert(this->layers.begin(), Layer{width, 784});

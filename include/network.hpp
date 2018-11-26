@@ -13,10 +13,12 @@ private:
     /// @brief Layers of the Network.
     std::vector<Layer> layers{};
 
+    double learning_rate{};
+
 public:
     Network() = default;
 
-    Network(std::size_t layers, std::size_t width);
+    Network(std::size_t layers, std::size_t width, double learning_rate);
 
     Eigen::VectorXd forward_propagate(Eigen::VectorXd input) const;
 
