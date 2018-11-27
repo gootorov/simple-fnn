@@ -25,13 +25,13 @@ Eigen::VectorXd Network::forward_propagate(Eigen::VectorXd image) {
     return image;
 }
 
-Network::Array Network::backpropagate(Eigen::VectorXd net_output, Eigen::VectorXd label) const {
+Gradient Network::backpropagate(Eigen::VectorXd net_output, Eigen::VectorXd label) const {
     auto d_sigmoid = [](auto component) -> double {
         return component * (1.0 - component);
     };
 
     // initialize the gradient.
-    auto gradient = Array(layers.size());
+    auto gradient = Gradient(layers.size());
 
     // compute the error in the output layer.
     auto output_err = learning_rate * (net_output - label)

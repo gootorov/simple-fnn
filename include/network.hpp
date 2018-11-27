@@ -5,12 +5,12 @@
 
 #include "layer.hpp"
 
+using Gradient = Eigen::Array<Eigen::VectorXd, Eigen::Dynamic, 1>;
 
 class Network {
 private:
     using TrainingData = std::vector<Eigen::VectorXd>;
     using Labels = std::vector<Eigen::VectorXd>;
-    using Array = Eigen::Array<Eigen::VectorXd, Eigen::Dynamic, 1>;
 
     /// @brief Layers of the Network.
     std::vector<Layer> layers{};
@@ -24,7 +24,7 @@ public:
 
     Eigen::VectorXd forward_propagate(Eigen::VectorXd input);
 
-    Network::Array backpropagate(Eigen::VectorXd net_output, Eigen::VectorXd label) const;
+    Gradient backpropagate(Eigen::VectorXd net_output, Eigen::VectorXd label) const;
 
     double cost(const TrainingData& training_data, const Labels& labels);
 };
