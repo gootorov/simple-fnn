@@ -81,22 +81,15 @@ void Network::learn(const Data& training_data, const Labels& labels) {
 }
 
 int Network::accuracy(const Data& data, const Labels& labels) {
-    double correct{};
+    int correct{};
     for (std::size_t i = 0; i < data.size(); i++) {
-        const auto& test_image = data[i];
-        const auto& vectorized_label = labels[i];
-        long int label{};
-        vectorized_label.maxCoeff(&label);
-
-        auto vectorized_prediction = forward_propagate(test_image);
-        long int prediction{};
-        vectorized_prediction.maxCoeff(&prediction);
-
+        const auto label = argmax(labels[i]);
+        const auto prediction = argmax(forward_propagate(data[i]));
         if (prediction == label) {
             correct++;
         }
     }
-    return (correct / double(data.size())) * 100;
+    return (double(correct) / double(data.size())) * 100;
 }
 
 double Network::cost(const Data& training_data, const Labels& labels) {
@@ -111,4 +104,16 @@ double Network::cost(const Data& training_data, const Labels& labels) {
     }
 
     return cost / training_data.size();
+}
+
+long int argmax(const Eigen::VectorXd& v) {
+    long int argmax = 0;
+    double max = v(0);
+    for (long int i = 0; i < v.size(); i++) {
+        if (v(i) > max) {
+            max = v(i);
+            argmax = i;
+        }
+    }
+    return argmax;
 }
