@@ -50,10 +50,15 @@ int main() {
     vectorize_labels(training_labels, mnist.training_labels);
     vectorize_labels(test_labels, mnist.test_labels);
 
-    auto network = Network(2, 16, 3.0);
+    auto network = Network(2, 30, 5.0);
+    network.learn(training_images, training_labels);
+
     std::cout << network.forward_propagate(training_images[0]).sum() << "\n";
 
+    std::cout << network.accuracy(training_images, training_labels) << "\n";
+
     std::cout << network.cost(training_images, training_labels) << "\n";
+
 
     return 0;
 }
