@@ -9,7 +9,7 @@ using Gradient = Eigen::Array<Eigen::VectorXd, Eigen::Dynamic, 1>;
 
 class Network {
 private:
-    using TrainingData = std::vector<Eigen::VectorXd>;
+    using Data = std::vector<Eigen::VectorXd>;
     using Labels = std::vector<Eigen::VectorXd>;
 
     /// @brief Layers of the Network.
@@ -28,11 +28,11 @@ public:
 
     void gradient_descent(Gradient gradient);
 
-    void learn(const TrainingData& training_data, const Labels& labels);
+    void learn(const Data& training_data, const Labels& labels);
 
-    int accuracy(const TrainingData& training_data, const Labels& labels);
+    int accuracy(const Data& training_data, const Labels& labels);
 
-    double cost(const TrainingData& training_data, const Labels& labels);
+    double cost(const Data& training_data, const Labels& labels);
 };
 
 #endif

@@ -60,7 +60,7 @@ void Network::gradient_descent(Gradient gradient) {
     }
 }
 
-void Network::learn(const TrainingData& training_data, const Labels& labels) {
+void Network::learn(const Data& training_data, const Labels& labels) {
     // TODO: Figure out a way to add element to a gradient
     // in which Eigen::Vector's are uninitialized?
     auto net_output = forward_propagate(training_data[0]);
@@ -80,7 +80,7 @@ void Network::learn(const TrainingData& training_data, const Labels& labels) {
     gradient_descent(gradient);
 }
 
-int Network::accuracy(const TrainingData& data, const Labels& labels) {
+int Network::accuracy(const Data& data, const Labels& labels) {
     double correct{};
     for (std::size_t i = 0; i < data.size(); i++) {
         const auto& test_image = data[i];
@@ -99,7 +99,7 @@ int Network::accuracy(const TrainingData& data, const Labels& labels) {
     return (correct / double(data.size())) * 100;
 }
 
-double Network::cost(const TrainingData& training_data, const Labels& labels) {
+double Network::cost(const Data& training_data, const Labels& labels) {
     double cost{};
 
     for (std::size_t i = 0; i < training_data.size(); i++) {
