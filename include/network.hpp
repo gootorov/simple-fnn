@@ -30,6 +30,8 @@ public:
 
     void learn(const TrainingData& training_data, const Labels& labels);
 
+    int accuracy(const TrainingData& training_data, const Labels& labels);
+
     double cost(const TrainingData& training_data, const Labels& labels);
 };
 

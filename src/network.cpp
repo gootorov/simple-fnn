@@ -80,6 +80,25 @@ void Network::learn(const TrainingData& training_data, const Labels& labels) {
     gradient_descent(gradient);
 }
 
+int Network::accuracy(const TrainingData& data, const Labels& labels) {
+    double correct{};
+    for (std::size_t i = 0; i < data.size(); i++) {
+        const auto& test_image = data[i];
+        const auto& vectorized_label = labels[i];
+        long int label{};
+        vectorized_label.maxCoeff(&label);
+
+        auto vectorized_prediction = forward_propagate(test_image);
+        long int prediction{};
+        vectorized_prediction.maxCoeff(&prediction);
+
+        if (prediction == label) {
+            correct++;
+        }
+    }
+    return (correct / double(data.size())) * 100;
+}
+
 double Network::cost(const TrainingData& training_data, const Labels& labels) {
     double cost{};
 
