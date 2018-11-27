@@ -26,6 +26,8 @@ public:
 
     Gradient backpropagate(Eigen::VectorXd net_output, Eigen::VectorXd label) const;
 
+    void gradient_descent(Gradient gradient);
+
     double cost(const TrainingData& training_data, const Labels& labels);
 };
 

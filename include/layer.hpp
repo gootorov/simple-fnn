@@ -31,6 +31,8 @@ public:
     void forward_propagate(Eigen::VectorXd& input);
 
     Eigen::VectorXd backpropagate(Eigen::VectorXd prev_err, const Layer& prev_layer) const;
+
+    void gradient_descent(Eigen::VectorXd gradient, const Layer& prev_layer);
 };
 
 #endif

@@ -55,3 +55,8 @@ Eigen::VectorXd Layer::backpropagate(Eigen::VectorXd prev_err, const Layer& prev
     return (prev_layer.weights.transpose() * prev_err)
         .cwiseProduct(prev_layer.activation.unaryExpr(d_sigmoid));
 }
+
+void Layer::gradient_descent(Eigen::VectorXd gradient, const Layer& prev_layer) {
+    this->weights -= gradient * prev_layer.activation.transpose();
+    this->neurons -= gradient;
+}

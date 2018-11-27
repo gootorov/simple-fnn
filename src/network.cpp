@@ -51,6 +51,15 @@ Gradient Network::backpropagate(Eigen::VectorXd net_output, Eigen::VectorXd labe
     return gradient;
 }
 
+void Network::gradient_descent(Gradient gradient) {
+    for (std::size_t i = layers.size() - 1; i > 1; i--) {
+        auto& layer = layers[i];
+        const auto& prev_layer = layers[i - 1];
+
+        layer.gradient_descent(gradient(i), prev_layer);
+    }
+}
+
 double Network::cost(const TrainingData& training_data, const Labels& labels) {
     double cost{};
 
