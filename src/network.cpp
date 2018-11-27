@@ -16,16 +16,16 @@ Network::Network(std::size_t layers, std::size_t width, double learning_rate) :
     this->layers.push_back(Layer{10, width});
 }
 
-Eigen::VectorXd Network::forward_propagate(Eigen::VectorXd image) const {
+Eigen::VectorXd Network::forward_propagate(Eigen::VectorXd image) {
     // propagate that vector.
-    for (const auto& layer : layers) {
+    for (auto& layer : layers) {
         layer.forward_propagate(image);
     }
 
     return image;
 }
 
-double Network::cost(const TrainingData& training_data, const Labels& labels) const {
+double Network::cost(const TrainingData& training_data, const Labels& labels) {
     double cost{};
 
     for (std::size_t i = 0; i < training_data.size(); i++) {

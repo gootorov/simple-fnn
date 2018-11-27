@@ -11,7 +11,8 @@ double Layer::random() const {
 
 Layer::Layer(std::size_t width, std::size_t width_prev_layer) :
     weights{width, width_prev_layer},
-    neurons{width}
+    neurons{width},
+    activation{width}
 {
     auto rand = [this](double) -> double {
         return this->random();
@@ -24,7 +25,8 @@ Layer::Layer(std::size_t width, std::size_t width_prev_layer) :
 
 Layer::Layer(std::size_t width, std::size_t width_prev_layer, double bias) :
     weights{width, width_prev_layer},
-    neurons{width}
+    neurons{width},
+    activation{width}
 {
     this->neurons.fill(bias);
 
@@ -35,11 +37,12 @@ Layer::Layer(std::size_t width, std::size_t width_prev_layer, double bias) :
     this->weights = weights.unaryExpr(rand);
 }
 
-void Layer::forward_propagate(Eigen::VectorXd& input) const {
+void Layer::forward_propagate(Eigen::VectorXd& input) {
     auto sigmoid = [](auto component) -> double {
         return 1.0 / (1.0 + 1.0 / std::exp(component));
     };
 
     // propagate the vector
-    input = (weights * input + neurons).unaryExpr(sigmoid);
+    this->activation = (weights * input + neurons).unaryExpr(sigmoid);
+    input = activation;
 }

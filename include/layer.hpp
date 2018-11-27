@@ -13,6 +13,8 @@ private:
     /// @brief The vector of neurons in this Layer that hold the biases.
     Eigen::VectorXd neurons{};
 
+    Eigen::VectorXd activation{};
+
     /// @brief Generates a random number within [-1, 1] range.
     double random() const;
 
@@ -26,7 +28,7 @@ public:
     /// @param bias The bias used to initialize Neurons in this layer.
     Layer(std::size_t width, std::size_t width_prev_layer, double bias);
 
-    void forward_propagate(Eigen::VectorXd& input) const;
+    void forward_propagate(Eigen::VectorXd& input);
 };
 
 #endif
