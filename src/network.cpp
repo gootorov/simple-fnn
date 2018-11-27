@@ -61,8 +61,12 @@ void Network::gradient_descent(Gradient gradient) {
 }
 
 void Network::learn(const TrainingData& training_data, const Labels& labels) {
-    auto gradient = Gradient(layers.size());
-    for (std::size_t i = 0; i < training_data.size(); i++) {
+    // TODO: Figure out a way to add element to a gradient
+    // in which Eigen::Vector's are uninitialized?
+    auto net_output = forward_propagate(training_data[0]);
+    auto gradient = backpropagate(net_output, labels[0]);
+
+    for (std::size_t i = 1; i < training_data.size(); i++) {
         const auto& image = training_data[i];
         const auto& label = labels[i];
 
