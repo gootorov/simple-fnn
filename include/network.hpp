@@ -28,6 +28,8 @@ public:
 
     void gradient_descent(Gradient gradient);
 
+    void learn(const TrainingData& training_data, const Labels& labels);
+
     double cost(const TrainingData& training_data, const Labels& labels);
 };
 

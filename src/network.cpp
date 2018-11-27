@@ -60,6 +60,22 @@ void Network::gradient_descent(Gradient gradient) {
     }
 }
 
+void Network::learn(const TrainingData& training_data, const Labels& labels) {
+    auto gradient = Gradient(layers.size());
+    for (std::size_t i = 0; i < training_data.size(); i++) {
+        const auto& image = training_data[i];
+        const auto& label = labels[i];
+
+        auto net_output = forward_propagate(image);
+        gradient += backpropagate(net_output, label);
+    }
+    // TODO: What?
+    for (std::size_t i = 0; i < layers.size(); i++) {
+        gradient(i) /= training_data.size();
+    }
+    gradient_descent(gradient);
+}
+
 double Network::cost(const TrainingData& training_data, const Labels& labels) {
     double cost{};
 
