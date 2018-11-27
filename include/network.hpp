@@ -5,11 +5,11 @@
 
 #include "layer.hpp"
 
-using TrainingData = std::vector<Eigen::VectorXd>;
-using Labels = std::vector<Eigen::VectorXd>;
-
 class Network {
 private:
+    using TrainingData = std::vector<Eigen::VectorXd>;
+    using Labels = std::vector<Eigen::VectorXd>;
+
     /// @brief Layers of the Network.
     std::vector<Layer> layers{};
 
