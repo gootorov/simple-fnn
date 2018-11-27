@@ -41,7 +41,7 @@ Gradient Network::backpropagate(Eigen::VectorXd net_output, Eigen::VectorXd labe
     gradient(layers.size() - 1) = output_err;
 
     // add remaining errors to the gradient.
-    for (std::size_t i = layers.size() - 2; i > 0; i--) {
+    for (int i = layers.size() - 2; i > -1; i--) {
         const auto& layer = layers[i];
         const auto& prev_layer = layers[i + 1];
 
