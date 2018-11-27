@@ -9,6 +9,7 @@ class Network {
 private:
     using TrainingData = std::vector<Eigen::VectorXd>;
     using Labels = std::vector<Eigen::VectorXd>;
+    using Array = Eigen::Array<Eigen::VectorXd, Eigen::Dynamic, 1>;
 
     /// @brief Layers of the Network.
     std::vector<Layer> layers{};
