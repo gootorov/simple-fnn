@@ -29,6 +29,8 @@ public:
     Layer(std::size_t width, std::size_t width_prev_layer, double bias);
 
     void forward_propagate(Eigen::VectorXd& input);
+
+    Eigen::VectorXd backpropagate(Eigen::VectorXd prev_err, const Layer& prev_layer) const;
 };
 
 #endif

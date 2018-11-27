@@ -46,3 +46,12 @@ void Layer::forward_propagate(Eigen::VectorXd& input) {
     this->activation = (weights * input + neurons).unaryExpr(sigmoid);
     input = activation;
 }
+
+Eigen::VectorXd Layer::backpropagate(Eigen::VectorXd prev_err, const Layer& prev_layer) const {
+    const auto d_sigmoid = [](auto component) -> double {
+        return component * (1.0 - component);
+    };
+
+    return (prev_layer.weights.transpose() * prev_err)
+        .cwiseProduct(prev_layer.activation.unaryExpr(d_sigmoid));
+}

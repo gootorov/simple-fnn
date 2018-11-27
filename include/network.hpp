@@ -5,6 +5,7 @@
 
 #include "layer.hpp"
 
+
 class Network {
 private:
     using TrainingData = std::vector<Eigen::VectorXd>;
@@ -22,6 +23,8 @@ public:
     Network(std::size_t layers, std::size_t width, double learning_rate);
 
     Eigen::VectorXd forward_propagate(Eigen::VectorXd input);
+
+    Network::Array backpropagate(Eigen::VectorXd net_output, Eigen::VectorXd label) const;
 
     double cost(const TrainingData& training_data, const Labels& labels);
 };

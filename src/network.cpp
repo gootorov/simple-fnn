@@ -25,6 +25,32 @@ Eigen::VectorXd Network::forward_propagate(Eigen::VectorXd image) {
     return image;
 }
 
+Network::Array Network::backpropagate(Eigen::VectorXd net_output, Eigen::VectorXd label) const {
+    auto d_sigmoid = [](auto component) -> double {
+        return component * (1.0 - component);
+    };
+
+    // initialize the gradient.
+    auto gradient = Array(layers.size());
+
+    // compute the error in the output layer.
+    auto output_err = learning_rate * (net_output - label)
+        .cwiseProduct(net_output.unaryExpr(d_sigmoid));
+
+    // add that error as the gradient component.
+    gradient(layers.size() - 1) = output_err;
+
+    // add remaining errors to the gradient.
+    for (std::size_t i = layers.size() - 2; i > 0; i--) {
+        const auto& layer = layers[i];
+        const auto& prev_layer = layers[i + 1];
+
+        gradient(i) = learning_rate * layer.backpropagate(gradient(i + 1), prev_layer);
+    }
+
+    return gradient;
+}
+
 double Network::cost(const TrainingData& training_data, const Labels& labels) {
     double cost{};
 
