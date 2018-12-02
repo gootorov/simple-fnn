@@ -6,7 +6,6 @@ namespace NeuralNet {
 Layer::Layer(std::size_t width, std::size_t width_prev_layer) :
     weights{width, width_prev_layer},
     biases{width},
-    activation{width},
     prev_activation{width_prev_layer}
 {
     // Initialize weights and biases to random values.
@@ -17,7 +16,6 @@ Layer::Layer(std::size_t width, std::size_t width_prev_layer) :
 Layer::Layer(std::size_t width, std::size_t width_prev_layer, double bias) :
     weights{width, width_prev_layer},
     biases{width},
-    activation{width},
     prev_activation{width_prev_layer}
 {
     this->biases.fill(bias);
@@ -29,11 +27,13 @@ Layer::Layer(std::size_t width, std::size_t width_prev_layer, double bias) :
 void Layer::forward_propagate(Eigen::VectorXd& input) {
     this->prev_activation = input;
     // propagate the vector
-    this->activation = (weights * input + biases).unaryExpr(&internal::sigmoid);
-    input = activation;
+    input = (weights * input + biases).unaryExpr(&internal::sigmoid);
 }
 
 Eigen::VectorXd Layer::backpropagate(Eigen::VectorXd prev_err, const Layer& prev_layer) const {
+    // activation of this layer.
+    const auto& activation = prev_layer.prev_activation;
+
     return (prev_layer.weights.transpose() * prev_err)
         .cwiseProduct(activation.unaryExpr(&internal::d_sigmoid));
 }

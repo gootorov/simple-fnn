@@ -17,14 +17,10 @@ private:
     /// @brief The vector of biases.
     Eigen::VectorXd biases{};
 
-    /// @brief Stores the activation of this Layer.
-    /// @details The activation of this Layer is used to compute
-    /// the error during backpropagation.
-    Eigen::VectorXd activation{};
-
     /// @brief Stores activation of the preceeding Layer.
     /// @details The activation of the previous Layer is used
-    /// to compute the gradient descent step.
+    /// to compute the gradient descent step and the error during
+    /// backpropagation.
     Eigen::VectorXd prev_activation{};
 
 public:
