@@ -4,7 +4,7 @@
 double Layer::random() const {
     std::random_device seed{};
     std::mt19937 engine{seed()};
-    std::uniform_real_distribution<double> random_value{-1.0, 1.0};
+    std::normal_distribution<double> random_value{0.0, 1.0};
 
     return random_value(engine);
 }
