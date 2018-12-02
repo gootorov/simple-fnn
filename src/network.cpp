@@ -87,18 +87,18 @@ int Network::accuracy(const Data& data, const Labels& labels) {
     return (double(correct) / double(data.size())) * 100;
 }
 
-double Network::cost(const Data& training_data, const Labels& labels) {
+double Network::cost(const Data& data, const Labels& labels) {
     double cost{};
 
-    for (std::size_t i = 0; i < training_data.size(); i++) {
-        auto image = training_data[i];
+    for (std::size_t i = 0; i < data.size(); i++) {
+        auto image = data[i];
         auto label = labels[i];
 
         auto prediction = forward_propagate(image);
         cost += (label - prediction).squaredNorm();
     }
 
-    return cost / training_data.size();
+    return cost / data.size();
 }
 
 } // namespace NeuralNet

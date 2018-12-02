@@ -9,10 +9,14 @@
 
 using namespace NeuralNet;
 
+// given an input within [0, 255] discrete range, normalizes it so that
+// it is within [0, 1] continuous range.
 double normalize(double pixel) {
     return pixel / 255.0;
 }
 
+// each MNIST image is an std::vector of doubles, this function converts it into Eigen::Vector's
+// and normalizes the values.
 void load_data(std::vector<std::vector<double>>& source, std::vector<Eigen::VectorXd>& target) {
     for (auto& image : source) {
         target.push_back(Eigen::VectorXd::Map(image.data(), image.size()));
