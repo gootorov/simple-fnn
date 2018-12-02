@@ -5,9 +5,9 @@
 
 #include "layer.hpp"
 
-using Gradient = Eigen::Array<Eigen::VectorXd, Eigen::Dynamic, 1>;
-
 namespace NeuralNet {
+
+using Gradient = Eigen::Array<Eigen::VectorXd, Eigen::Dynamic, 1>;
 
 class Network {
 private:
