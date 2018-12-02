@@ -35,6 +35,4 @@ public:
     double cost(const Data& training_data, const Labels& labels);
 };
 
-long int argmax(const Eigen::VectorXd& v);
-
 #endif

@@ -3,6 +3,7 @@
 #include <Eigen/Core>
 #include <cmath>
 
+#include "internal.hpp"
 #include "network.hpp"
 #include "layer.hpp"
 
@@ -28,16 +29,12 @@ Eigen::VectorXd Network::forward_propagate(Eigen::VectorXd image) {
 }
 
 Gradient Network::backpropagate(Eigen::VectorXd net_output, Eigen::VectorXd label) const {
-    auto d_sigmoid = [](auto component) -> double {
-        return component * (1.0 - component);
-    };
-
     // initialize the gradient.
     auto gradient = Gradient(layers.size());
 
     // compute the error in the output layer.
     auto output_err = learning_rate * (net_output - label)
-        .cwiseProduct(net_output.unaryExpr(d_sigmoid));
+        .cwiseProduct(net_output.unaryExpr(&internal::d_sigmoid));
 
     // add that error as the gradient component.
     gradient(layers.size() - 1) = output_err;
@@ -76,6 +73,8 @@ void Network::learn(const Data& training_data, const Labels& labels, bool debug)
 }
 
 int Network::accuracy(const Data& data, const Labels& labels) {
+    using internal::argmax;
+
     int correct{};
     for (std::size_t i = 0; i < data.size(); i++) {
         const auto label = argmax(labels[i]);
@@ -99,16 +98,4 @@ double Network::cost(const Data& training_data, const Labels& labels) {
     }
 
     return cost / training_data.size();
-}
-
-long int argmax(const Eigen::VectorXd& v) {
-    long int argmax = 0;
-    double max = v(0);
-    for (long int i = 0; i < v.size(); i++) {
-        if (v(i) > max) {
-            max = v(i);
-            argmax = i;
-        }
-    }
-    return argmax;
 }

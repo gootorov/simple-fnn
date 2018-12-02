@@ -1,13 +1,5 @@
-#include <random>
+#include "internal.hpp"
 #include "layer.hpp"
-
-double Layer::random() const {
-    std::random_device seed{};
-    std::mt19937 engine{seed()};
-    std::normal_distribution<double> random_value{0.0, 1.0};
-
-    return random_value(engine);
-}
 
 Layer::Layer(std::size_t width, std::size_t width_prev_layer) :
     weights{width, width_prev_layer},
@@ -15,13 +7,9 @@ Layer::Layer(std::size_t width, std::size_t width_prev_layer) :
     activation{width},
     prev_activation{width_prev_layer}
 {
-    auto rand = [this](double) -> double {
-        return this->random();
-    };
-
     // Initialize weights and biases to random values.
-    this->neurons = neurons.unaryExpr(rand);
-    this->weights = weights.unaryExpr(rand);
+    this->neurons = neurons.unaryExpr(&internal::random);
+    this->weights = weights.unaryExpr(&internal::random);
 }
 
 Layer::Layer(std::size_t width, std::size_t width_prev_layer, double bias) :
@@ -33,30 +21,19 @@ Layer::Layer(std::size_t width, std::size_t width_prev_layer, double bias) :
     this->neurons.fill(bias);
 
     // Initialize weights and to random values.
-    auto rand = [this](double) -> double {
-        return this->random();
-    };
-    this->weights = weights.unaryExpr(rand);
+    this->weights = weights.unaryExpr(&internal::random);
 }
 
 void Layer::forward_propagate(Eigen::VectorXd& input) {
-    auto sigmoid = [](auto component) -> double {
-        return 1.0 / (1.0 + 1.0 / std::exp(component));
-    };
-
     this->prev_activation = input;
     // propagate the vector
-    this->activation = (weights * input + neurons).unaryExpr(sigmoid);
+    this->activation = (weights * input + neurons).unaryExpr(&internal::sigmoid);
     input = activation;
 }
 
 Eigen::VectorXd Layer::backpropagate(Eigen::VectorXd prev_err, const Layer& prev_layer) const {
-    const auto d_sigmoid = [](auto component) -> double {
-        return component * (1.0 - component);
-    };
-
     return (prev_layer.weights.transpose() * prev_err)
-        .cwiseProduct(activation.unaryExpr(d_sigmoid));
+        .cwiseProduct(activation.unaryExpr(&internal::d_sigmoid));
 }
 
 void Layer::gradient_descent(Eigen::VectorXd gradient) {

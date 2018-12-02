@@ -17,9 +17,6 @@ private:
 
     Eigen::VectorXd prev_activation{};
 
-    /// @brief Generates a random number within [-1, 1] range.
-    double random() const;
-
 public:
     Layer() = default;
 
