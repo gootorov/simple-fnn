@@ -28,7 +28,7 @@ public:
 
     void gradient_descent(Gradient gradient);
 
-    void learn(const Data& training_data, const Labels& labels);
+    void learn(const Data& training_data, const Labels& labels, bool debug=false);
 
     int accuracy(const Data& training_data, const Labels& labels);
 

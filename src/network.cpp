@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include <Eigen/Core>
 #include <cmath>
 
@@ -59,7 +61,7 @@ void Network::gradient_descent(Gradient gradient) {
     }
 }
 
-void Network::learn(const Data& training_data, const Labels& labels) {
+void Network::learn(const Data& training_data, const Labels& labels, bool debug) {
     for (std::size_t i = 0; i < training_data.size(); i++) {
         const auto& image = training_data[i];
         const auto& label = labels[i];
@@ -67,6 +69,9 @@ void Network::learn(const Data& training_data, const Labels& labels) {
         auto net_output = forward_propagate(image);
         auto gradient = backpropagate(net_output, label);
         gradient_descent(gradient);
+        if (debug) {
+            std::cout << "Cost: " << (label - net_output).norm() << "\n";
+        }
     }
 }
 
