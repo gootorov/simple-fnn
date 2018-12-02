@@ -15,7 +15,7 @@ private:
     Eigen::MatrixXd weights{};
 
     /// @brief The vector of biases.
-    Eigen::VectorXd neurons{};
+    Eigen::VectorXd biases{};
 
     /// @brief Stores the activation of this Layer.
     /// @detail The activation of this Layer is used to compute
