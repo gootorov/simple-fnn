@@ -15,6 +15,8 @@ private:
 
     Eigen::VectorXd activation{};
 
+    Eigen::VectorXd prev_activation{};
+
     /// @brief Generates a random number within [-1, 1] range.
     double random() const;
 
@@ -32,7 +34,7 @@ public:
 
     Eigen::VectorXd backpropagate(Eigen::VectorXd prev_err, const Layer& prev_layer) const;
 
-    void gradient_descent(Eigen::VectorXd gradient, const Layer& prev_layer);
+    void gradient_descent(Eigen::VectorXd gradient);
 };
 
 #endif

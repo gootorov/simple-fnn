@@ -12,7 +12,8 @@ double Layer::random() const {
 Layer::Layer(std::size_t width, std::size_t width_prev_layer) :
     weights{width, width_prev_layer},
     neurons{width},
-    activation{width}
+    activation{width},
+    prev_activation{width_prev_layer}
 {
     auto rand = [this](double) -> double {
         return this->random();
@@ -26,7 +27,8 @@ Layer::Layer(std::size_t width, std::size_t width_prev_layer) :
 Layer::Layer(std::size_t width, std::size_t width_prev_layer, double bias) :
     weights{width, width_prev_layer},
     neurons{width},
-    activation{width}
+    activation{width},
+    prev_activation{width_prev_layer}
 {
     this->neurons.fill(bias);
 
@@ -42,6 +44,7 @@ void Layer::forward_propagate(Eigen::VectorXd& input) {
         return 1.0 / (1.0 + 1.0 / std::exp(component));
     };
 
+    this->prev_activation = input;
     // propagate the vector
     this->activation = (weights * input + neurons).unaryExpr(sigmoid);
     input = activation;
@@ -56,7 +59,7 @@ Eigen::VectorXd Layer::backpropagate(Eigen::VectorXd prev_err, const Layer& prev
         .cwiseProduct(activation.unaryExpr(d_sigmoid));
 }
 
-void Layer::gradient_descent(Eigen::VectorXd gradient, const Layer& prev_layer) {
-    this->weights -= gradient * prev_layer.activation.transpose();
+void Layer::gradient_descent(Eigen::VectorXd gradient) {
+    this->weights -= gradient * prev_activation.transpose();
     this->neurons -= gradient;
 }

@@ -52,11 +52,10 @@ Gradient Network::backpropagate(Eigen::VectorXd net_output, Eigen::VectorXd labe
 }
 
 void Network::gradient_descent(Gradient gradient) {
-    for (int i = layers.size() - 1; i > 0; i--) {
+    for (int i = layers.size() - 1; i > -1; i--) {
         auto& layer = layers[i];
-        const auto& prev_layer = layers[i - 1];
 
-        layer.gradient_descent(gradient(i), prev_layer);
+        layer.gradient_descent(gradient(i));
     }
 }
 
