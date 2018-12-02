@@ -1,7 +1,6 @@
 #include <iostream>
 
 #include <Eigen/Core>
-#include <cmath>
 
 #include "internal.hpp"
 #include "network.hpp"
