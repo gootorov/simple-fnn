@@ -19,16 +19,16 @@ private:
 
     double learning_rate{};
 
-public:
-    Network() = default;
-
-    Network(std::size_t layers, std::size_t width, double learning_rate);
-
     Eigen::VectorXd forward_propagate(Eigen::VectorXd input);
 
     Gradient backpropagate(Eigen::VectorXd net_output, Eigen::VectorXd label) const;
 
     void gradient_descent(Gradient gradient);
+
+public:
+    Network() = default;
+
+    Network(std::size_t layers, std::size_t width, double learning_rate);
 
     void learn(const Data& training_data, const Labels& labels, bool debug=false);
 
