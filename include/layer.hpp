@@ -9,7 +9,7 @@ namespace NeuralNet {
 class Layer {
 private:
     /// @brief The matrix that holds the weights for this Layer.
-    /// @detail Each nth row represents a vector of weights connected
+    /// @details Each nth row represents a vector of weights connected
     /// to the nth neuron.
     /// The dimension of the weight matrix is layer_width x previous_layer_width.
     Eigen::MatrixXd weights{};
@@ -18,12 +18,12 @@ private:
     Eigen::VectorXd biases{};
 
     /// @brief Stores the activation of this Layer.
-    /// @detail The activation of this Layer is used to compute
+    /// @details The activation of this Layer is used to compute
     /// the error during backpropagation.
     Eigen::VectorXd activation{};
 
     /// @brief Stores activation of the preceeding Layer.
-    /// @detail The activation of the previous Layer is used
+    /// @details The activation of the previous Layer is used
     /// to compute the gradient descent step.
     Eigen::VectorXd prev_activation{};
 

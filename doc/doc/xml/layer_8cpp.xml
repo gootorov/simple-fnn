@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="layer_8cpp" kind="file" language="C++">
+    <compoundname>layer.cpp</compoundname>
+    <includes refid="internal_8hpp" local="yes">internal.hpp</includes>
+    <includes refid="layer_8hpp" local="yes">layer.hpp</includes>
+    <incdepgraph>
+      <node id="27">
+        <label>layer.hpp</label>
+        <link refid="layer_8hpp"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>Eigen/Core</label>
+      </node>
+      <node id="25">
+        <label>internal.hpp</label>
+        <link refid="internal_8hpp"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>/home/null/dev/cpp/neural_net/src/layer.cpp</label>
+        <link refid="layer_8cpp"/>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceNeuralNet">NeuralNet</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/null/dev/cpp/neural_net/src/layer.cpp"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.14">
+  <compound refid="classNeuralNet_1_1Layer" kind="class"><name>NeuralNet::Layer</name>
+    <member refid="classNeuralNet_1_1Layer_1a56ffa97c4a85842fcbe5b1154373b4e8" kind="variable"><name>weights</name></member>
+    <member refid="classNeuralNet_1_1Layer_1a21e7c6e3bfe027f34cc9c64454f414c4" kind="variable"><name>biases</name></member>
+    <member refid="classNeuralNet_1_1Layer_1ad0b2b00da89551a2974ce5ced8ca0239" kind="variable"><name>activation</name></member>
+    <member refid="classNeuralNet_1_1Layer_1a90bd996c99ace3bb41e0607818be61e3" kind="variable"><name>prev_activation</name></member>
+    <member refid="classNeuralNet_1_1Layer_1a4ac3fd71b49705e41975d4f2a55980eb" kind="function"><name>Layer</name></member>
+    <member refid="classNeuralNet_1_1Layer_1a07a11dc0120270973bba536bfa5513eb" kind="function"><name>Layer</name></member>
+    <member refid="classNeuralNet_1_1Layer_1a4c948d1fb350db5508bf287a0b06ac37" kind="function"><name>Layer</name></member>
+    <member refid="classNeuralNet_1_1Layer_1a74bc7f8e42d2918d5bb93e3b400cca21" kind="function"><name>forward_propagate</name></member>
+    <member refid="classNeuralNet_1_1Layer_1a5a84c53b503c251b4e002dc02886f504" kind="function"><name>backpropagate</name></member>
+    <member refid="classNeuralNet_1_1Layer_1a8cddb1c030d43b6a9a606e53c489d37f" kind="function"><name>gradient_descent</name></member>
+  </compound>
+  <compound refid="classNeuralNet_1_1Network" kind="class"><name>NeuralNet::Network</name>
+    <member refid="classNeuralNet_1_1Network_1aba0b9de75a6e6f1711acca9046188620" kind="typedef"><name>Data</name></member>
+    <member refid="classNeuralNet_1_1Network_1a93a4673467118815221537ee8ffe8088" kind="typedef"><name>Labels</name></member>
+    <member refid="classNeuralNet_1_1Network_1a7205ef7ebbdda2f2bc507aaa966ee3bc" kind="variable"><name>layers</name></member>
+    <member refid="classNeuralNet_1_1Network_1a67489117bff9ade515f7ac217cde9c80" kind="variable"><name>learning_rate</name></member>
+    <member refid="classNeuralNet_1_1Network_1abbfadb6ce63698dba827ba04a5de8481" kind="function"><name>forward_propagate</name></member>
+    <member refid="classNeuralNet_1_1Network_1a4859bc14b4a78724e16122e3044dd58f" kind="function"><name>backpropagate</name></member>
+    <member refid="classNeuralNet_1_1Network_1a2d1c5cda46ec12b6aa03b32eea4f5c68" kind="function"><name>gradient_descent</name></member>
+    <member refid="classNeuralNet_1_1Network_1ab6cc4afdee36ab5bb874f1bba04dd6a2" kind="function"><name>Network</name></member>
+    <member refid="classNeuralNet_1_1Network_1a2ef6caef5c1d20966d723e81b00e1de4" kind="function"><name>Network</name></member>
+    <member refid="classNeuralNet_1_1Network_1a1b3e623483150be8e78b5f8a40b71f3d" kind="function"><name>learn</name></member>
+    <member refid="classNeuralNet_1_1Network_1af2f2d99561a34c1d02b093805d8ea916" kind="function"><name>accuracy</name></member>
+    <member refid="classNeuralNet_1_1Network_1a69395d6dc327ee8576cf082aa60c047b" kind="function"><name>cost</name></member>
+  </compound>
+  <compound refid="namespaceNeuralNet" kind="namespace"><name>NeuralNet</name>
+    <member refid="namespaceNeuralNet_1a0f09da558f983d46b08d0cfaeb912864" kind="typedef"><name>Gradient</name></member>
+  </compound>
+  <compound refid="namespaceNeuralNet_1_1internal" kind="namespace"><name>NeuralNet::internal</name>
+    <member refid="namespaceNeuralNet_1_1internal_1aea61d4f52e39e88b9bddab5193584b08" kind="function"><name>argmax</name></member>
+    <member refid="namespaceNeuralNet_1_1internal_1af3b681db74678505e82860b8767126fd" kind="function"><name>random</name></member>
+    <member refid="namespaceNeuralNet_1_1internal_1a6ab5efffaaaba2eaf8f21dc4038f836a" kind="function"><name>sigmoid</name></member>
+    <member refid="namespaceNeuralNet_1_1internal_1a52fe46a5aff9b5d646e9feb05ab5e207" kind="function"><name>d_sigmoid</name></member>
+  </compound>
+  <compound refid="internal_8hpp" kind="file"><name>internal.hpp</name>
+  </compound>
+  <compound refid="layer_8hpp" kind="file"><name>layer.hpp</name>
+  </compound>
+  <compound refid="network_8hpp" kind="file"><name>network.hpp</name>
+  </compound>
+  <compound refid="internal_8cpp" kind="file"><name>internal.cpp</name>
+  </compound>
+  <compound refid="layer_8cpp" kind="file"><name>layer.cpp</name>
+  </compound>
+  <compound refid="main_8cpp" kind="file"><name>main.cpp</name>
+    <member refid="main_8cpp_1af004872936d17152d1a1640ef59eaecf" kind="function"><name>normalize</name></member>
+    <member refid="main_8cpp_1a5d11ead7e124d0f06ec925e47cd4f000" kind="function"><name>load_data</name></member>
+    <member refid="main_8cpp_1a14231affd8d1700771885e247c858510" kind="function"><name>vectorize_labels</name></member>
+    <member refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="network_8cpp" kind="file"><name>network.cpp</name>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>/home/null/dev/cpp/neural_net/include</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>/home/null/dev/cpp/neural_net/src</name>
+  </compound>
+</doxygenindex>

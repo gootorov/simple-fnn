@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="namespaceNeuralNet" kind="namespace" language="C++">
+    <compoundname>NeuralNet</compoundname>
+    <innerclass refid="classNeuralNet_1_1Layer" prot="public">NeuralNet::Layer</innerclass>
+    <innerclass refid="classNeuralNet_1_1Network" prot="public">NeuralNet::Network</innerclass>
+    <innernamespace refid="namespaceNeuralNet_1_1internal">NeuralNet::internal</innernamespace>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="namespaceNeuralNet_1a0f09da558f983d46b08d0cfaeb912864" prot="public" static="no">
+        <type>Eigen::Array&lt; Eigen::VectorXd, Eigen::Dynamic, 1 &gt;</type>
+        <definition>using NeuralNet::Gradient = typedef Eigen::Array&lt;Eigen::VectorXd, Eigen::Dynamic, 1&gt;</definition>
+        <argsstring></argsstring>
+        <name>Gradient</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/null/dev/cpp/neural_net/include/network.hpp" line="11" column="1" bodyfile="/home/null/dev/cpp/neural_net/include/network.hpp" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Fully Connected Neural <ref refid="classNeuralNet_1_1Network" kindref="compound">Network</ref> library. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/null/dev/cpp/neural_net/src/internal.cpp" line="7" column="1"/>
+  </compounddef>
+</doxygen>

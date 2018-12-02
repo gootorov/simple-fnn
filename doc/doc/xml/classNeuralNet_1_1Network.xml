@@ -1,0 +1,356 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="classNeuralNet_1_1Network" kind="class" language="C++" prot="public">
+    <compoundname>NeuralNet::Network</compoundname>
+    <includes refid="network_8hpp" local="no">network.hpp</includes>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classNeuralNet_1_1Network_1aba0b9de75a6e6f1711acca9046188620" prot="private" static="no">
+        <type>std::vector&lt; Eigen::VectorXd &gt;</type>
+        <definition>using NeuralNet::Network::Data =  std::vector&lt;Eigen::VectorXd&gt;</definition>
+        <argsstring></argsstring>
+        <name>Data</name>
+        <briefdescription>
+<para>Type alias for training or testing data. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/null/dev/cpp/neural_net/include/network.hpp" line="17" column="1" bodyfile="/home/null/dev/cpp/neural_net/include/network.hpp" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classNeuralNet_1_1Network_1a93a4673467118815221537ee8ffe8088" prot="private" static="no">
+        <type>std::vector&lt; Eigen::VectorXd &gt;</type>
+        <definition>using NeuralNet::Network::Labels =  std::vector&lt;Eigen::VectorXd&gt;</definition>
+        <argsstring></argsstring>
+        <name>Labels</name>
+        <briefdescription>
+<para>Type alias for training or testing labels. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/null/dev/cpp/neural_net/include/network.hpp" line="19" column="1" bodyfile="/home/null/dev/cpp/neural_net/include/network.hpp" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classNeuralNet_1_1Network_1a7205ef7ebbdda2f2bc507aaa966ee3bc" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classNeuralNet_1_1Layer" kindref="compound">Layer</ref> &gt;</type>
+        <definition>std::vector&lt;Layer&gt; NeuralNet::Network::layers</definition>
+        <argsstring></argsstring>
+        <name>layers</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+<para>Layers of the <ref refid="classNeuralNet_1_1Network" kindref="compound">Network</ref>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/null/dev/cpp/neural_net/include/network.hpp" line="22" column="1" bodyfile="/home/null/dev/cpp/neural_net/include/network.hpp" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNeuralNet_1_1Network_1a67489117bff9ade515f7ac217cde9c80" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double NeuralNet::Network::learning_rate</definition>
+        <argsstring></argsstring>
+        <name>learning_rate</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+<para>The learning rate of the <ref refid="classNeuralNet_1_1Network" kindref="compound">Network</ref>, i.e. the gradient scalar. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/null/dev/cpp/neural_net/include/network.hpp" line="26" column="1" bodyfile="/home/null/dev/cpp/neural_net/include/network.hpp" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classNeuralNet_1_1Network_1abbfadb6ce63698dba827ba04a5de8481" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Eigen::VectorXd</type>
+        <definition>Eigen::VectorXd NeuralNet::Network::forward_propagate</definition>
+        <argsstring>(Eigen::VectorXd input)</argsstring>
+        <name>forward_propagate</name>
+        <param>
+          <type>Eigen::VectorXd</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+<para>Propagate the input vector throught the <ref refid="classNeuralNet_1_1Network" kindref="compound">Network</ref>. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Input vector, e.g. a MNIST image. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Propagated vector. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/null/dev/cpp/neural_net/include/network.hpp" line="31" column="1" bodyfile="/home/null/dev/cpp/neural_net/src/network.cpp" bodystart="23" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classNeuralNet_1_1Network_1a4859bc14b4a78724e16122e3044dd58f" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceNeuralNet_1a0f09da558f983d46b08d0cfaeb912864" kindref="member">Gradient</ref></type>
+        <definition>Gradient NeuralNet::Network::backpropagate</definition>
+        <argsstring>(Eigen::VectorXd net_output, Eigen::VectorXd label) const</argsstring>
+        <name>backpropagate</name>
+        <param>
+          <type>Eigen::VectorXd</type>
+          <declname>net_output</declname>
+        </param>
+        <param>
+          <type>Eigen::VectorXd</type>
+          <declname>label</declname>
+        </param>
+        <briefdescription>
+<para>Given the output of the <ref refid="classNeuralNet_1_1Network" kindref="compound">Network</ref> and the label, computes the output error backpropagates it. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>net_output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Output of the <ref refid="classNeuralNet_1_1Network" kindref="compound">Network</ref>, i.e. forward propagated input. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>label</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The desired output of the <ref refid="classNeuralNet_1_1Network" kindref="compound">Network</ref>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The Gradient vector. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/null/dev/cpp/neural_net/include/network.hpp" line="38" column="1" bodyfile="/home/null/dev/cpp/neural_net/src/network.cpp" bodystart="32" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="classNeuralNet_1_1Network_1a2d1c5cda46ec12b6aa03b32eea4f5c68" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NeuralNet::Network::gradient_descent</definition>
+        <argsstring>(Gradient gradient)</argsstring>
+        <name>gradient_descent</name>
+        <param>
+          <type><ref refid="namespaceNeuralNet_1a0f09da558f983d46b08d0cfaeb912864" kindref="member">Gradient</ref></type>
+          <declname>gradient</declname>
+        </param>
+        <briefdescription>
+<para>Given the gradient vector, applies it to the <ref refid="classNeuralNet_1_1Network" kindref="compound">Network</ref>&apos;s weights and biases. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gradient</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The gradient vector. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/null/dev/cpp/neural_net/include/network.hpp" line="42" column="1" bodyfile="/home/null/dev/cpp/neural_net/src/network.cpp" bodystart="54" bodyend="60"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classNeuralNet_1_1Network_1ab6cc4afdee36ab5bb874f1bba04dd6a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>NeuralNet::Network::Network</definition>
+        <argsstring>()=default</argsstring>
+        <name>Network</name>
+        <briefdescription>
+<para>Default constructor. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/null/dev/cpp/neural_net/include/network.hpp" line="46" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classNeuralNet_1_1Network_1a2ef6caef5c1d20966d723e81b00e1de4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>NeuralNet::Network::Network</definition>
+        <argsstring>(std::size_t layers, std::size_t width, double learning_rate)</argsstring>
+        <name>Network</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>layers</declname>
+        </param>
+        <param>
+          <type>std::size_t</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>learning_rate</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>layers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of hidden Layers in this <ref refid="classNeuralNet_1_1Network" kindref="compound">Network</ref>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>width</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The width of each <ref refid="classNeuralNet_1_1Layer" kindref="compound">Layer</ref>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>learning_rate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The learning rate. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/null/dev/cpp/neural_net/include/network.hpp" line="51" column="1" bodyfile="/home/null/dev/cpp/neural_net/src/network.cpp" bodystart="11" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classNeuralNet_1_1Network_1a1b3e623483150be8e78b5f8a40b71f3d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NeuralNet::Network::learn</definition>
+        <argsstring>(const Data &amp;training_data, const Labels &amp;labels, bool debug=false)</argsstring>
+        <name>learn</name>
+        <param>
+          <type>const <ref refid="classNeuralNet_1_1Network_1aba0b9de75a6e6f1711acca9046188620" kindref="member">Data</ref> &amp;</type>
+          <declname>training_data</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classNeuralNet_1_1Network_1a93a4673467118815221537ee8ffe8088" kindref="member">Labels</ref> &amp;</type>
+          <declname>labels</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>debug</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Given the training data and labels, the <ref refid="classNeuralNet_1_1Network" kindref="compound">Network</ref> learns. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>training_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Training data, e.g. MNIST images. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>labels</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Labels for to the Data, e.g. the actual numbers depicted in MNIST images. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>debug</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Print the cost of each training example as the <ref refid="classNeuralNet_1_1Network" kindref="compound">Network</ref> learns. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/null/dev/cpp/neural_net/include/network.hpp" line="57" column="1" bodyfile="/home/null/dev/cpp/neural_net/src/network.cpp" bodystart="62" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="classNeuralNet_1_1Network_1af2f2d99561a34c1d02b093805d8ea916" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int NeuralNet::Network::accuracy</definition>
+        <argsstring>(const Data &amp;data, const Labels &amp;labels)</argsstring>
+        <name>accuracy</name>
+        <param>
+          <type>const <ref refid="classNeuralNet_1_1Network_1aba0b9de75a6e6f1711acca9046188620" kindref="member">Data</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classNeuralNet_1_1Network_1a93a4673467118815221537ee8ffe8088" kindref="member">Labels</ref> &amp;</type>
+          <declname>labels</declname>
+        </param>
+        <briefdescription>
+<para>Given data, computes how accurate the Netowrk is. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Input data, e.g. MNIST images. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>labels</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Labels for to the Data, e.g. the actual numbers depicted in MNIST images. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/null/dev/cpp/neural_net/include/network.hpp" line="62" column="1" bodyfile="/home/null/dev/cpp/neural_net/src/network.cpp" bodystart="76" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="classNeuralNet_1_1Network_1a69395d6dc327ee8576cf082aa60c047b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double NeuralNet::Network::cost</definition>
+        <argsstring>(const Data &amp;data, const Labels &amp;labels)</argsstring>
+        <name>cost</name>
+        <param>
+          <type>const <ref refid="classNeuralNet_1_1Network_1aba0b9de75a6e6f1711acca9046188620" kindref="member">Data</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classNeuralNet_1_1Network_1a93a4673467118815221537ee8ffe8088" kindref="member">Labels</ref> &amp;</type>
+          <declname>labels</declname>
+        </param>
+        <briefdescription>
+<para>Given data, computes the average cost over all input examples. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Input data, e.g. MNIST images. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>labels</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Labels for to the Data, e.g. the actual numbers depicted in MNIST images. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/null/dev/cpp/neural_net/include/network.hpp" line="67" column="1" bodyfile="/home/null/dev/cpp/neural_net/src/network.cpp" bodystart="90" bodyend="102"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Type that represents a fully connected neural network. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/null/dev/cpp/neural_net/include/network.hpp" line="14" column="1" bodyfile="/home/null/dev/cpp/neural_net/include/network.hpp" bodystart="14" bodyend="68"/>
+    <listofallmembers>
+      <member refid="classNeuralNet_1_1Network_1af2f2d99561a34c1d02b093805d8ea916" prot="public" virt="non-virtual"><scope>NeuralNet::Network</scope><name>accuracy</name></member>
+      <member refid="classNeuralNet_1_1Network_1a4859bc14b4a78724e16122e3044dd58f" prot="private" virt="non-virtual"><scope>NeuralNet::Network</scope><name>backpropagate</name></member>
+      <member refid="classNeuralNet_1_1Network_1a69395d6dc327ee8576cf082aa60c047b" prot="public" virt="non-virtual"><scope>NeuralNet::Network</scope><name>cost</name></member>
+      <member refid="classNeuralNet_1_1Network_1aba0b9de75a6e6f1711acca9046188620" prot="private" virt="non-virtual"><scope>NeuralNet::Network</scope><name>Data</name></member>
+      <member refid="classNeuralNet_1_1Network_1abbfadb6ce63698dba827ba04a5de8481" prot="private" virt="non-virtual"><scope>NeuralNet::Network</scope><name>forward_propagate</name></member>
+      <member refid="classNeuralNet_1_1Network_1a2d1c5cda46ec12b6aa03b32eea4f5c68" prot="private" virt="non-virtual"><scope>NeuralNet::Network</scope><name>gradient_descent</name></member>
+      <member refid="classNeuralNet_1_1Network_1a93a4673467118815221537ee8ffe8088" prot="private" virt="non-virtual"><scope>NeuralNet::Network</scope><name>Labels</name></member>
+      <member refid="classNeuralNet_1_1Network_1a7205ef7ebbdda2f2bc507aaa966ee3bc" prot="private" virt="non-virtual"><scope>NeuralNet::Network</scope><name>layers</name></member>
+      <member refid="classNeuralNet_1_1Network_1a1b3e623483150be8e78b5f8a40b71f3d" prot="public" virt="non-virtual"><scope>NeuralNet::Network</scope><name>learn</name></member>
+      <member refid="classNeuralNet_1_1Network_1a67489117bff9ade515f7ac217cde9c80" prot="private" virt="non-virtual"><scope>NeuralNet::Network</scope><name>learning_rate</name></member>
+      <member refid="classNeuralNet_1_1Network_1ab6cc4afdee36ab5bb874f1bba04dd6a2" prot="public" virt="non-virtual"><scope>NeuralNet::Network</scope><name>Network</name></member>
+      <member refid="classNeuralNet_1_1Network_1a2ef6caef5c1d20966d723e81b00e1de4" prot="public" virt="non-virtual"><scope>NeuralNet::Network</scope><name>Network</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
