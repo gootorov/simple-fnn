@@ -1,6 +1,8 @@
 #include "internal.hpp"
 #include "layer.hpp"
 
+namespace NeuralNet {
+
 Layer::Layer(std::size_t width, std::size_t width_prev_layer) :
     weights{width, width_prev_layer},
     neurons{width},
@@ -40,3 +42,5 @@ void Layer::gradient_descent(Eigen::VectorXd gradient) {
     this->weights -= gradient * prev_activation.transpose();
     this->neurons -= gradient;
 }
+
+} // namespace NeuralNet

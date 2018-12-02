@@ -4,6 +4,8 @@
 
 #include "internal.hpp"
 
+namespace NeuralNet {
+
 namespace internal {
 
 long int argmax(const Eigen::VectorXd& v) {
@@ -35,3 +37,5 @@ double d_sigmoid(double component) {
 }
 
 } // namespace internal
+
+} // namespace NeuralNet

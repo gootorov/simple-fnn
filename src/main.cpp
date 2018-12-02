@@ -7,6 +7,8 @@
 
 #include "network.hpp"
 
+using namespace NeuralNet;
+
 double normalize(double pixel) {
     return pixel / 255.0;
 }

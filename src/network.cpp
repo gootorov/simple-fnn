@@ -7,6 +7,8 @@
 #include "network.hpp"
 #include "layer.hpp"
 
+namespace NeuralNet {
+
 Network::Network(std::size_t layers, std::size_t width, double learning_rate) :
     layers{layers, Layer{width, width}},
     learning_rate{learning_rate}
@@ -99,3 +101,5 @@ double Network::cost(const Data& training_data, const Labels& labels) {
 
     return cost / training_data.size();
 }
+
+} // namespace NeuralNet

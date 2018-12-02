@@ -3,6 +3,8 @@
 
 #include <Eigen/Core>
 
+namespace NeuralNet {
+
 /// @brief The type that represents a Layer in the Network.
 class Layer {
 private:
@@ -33,5 +35,7 @@ public:
 
     void gradient_descent(Eigen::VectorXd gradient);
 };
+
+} // namespace NeuralNet
 
 #endif

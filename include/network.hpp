@@ -7,6 +7,8 @@
 
 using Gradient = Eigen::Array<Eigen::VectorXd, Eigen::Dynamic, 1>;
 
+namespace NeuralNet {
+
 class Network {
 private:
     using Data = std::vector<Eigen::VectorXd>;
@@ -34,5 +36,7 @@ public:
 
     double cost(const Data& training_data, const Labels& labels);
 };
+
+} // namespace NeuralNet
 
 #endif
