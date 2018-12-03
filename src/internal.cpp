@@ -11,7 +11,7 @@ namespace internal {
 long int argmax(const Eigen::VectorXd& v) {
     long int argmax = 0;
     double max = v(0);
-    for (long int i = 0; i < v.size(); i++) {
+    for (long int i = 1; i < v.size(); i++) {
         if (v(i) > max) {
             max = v(i);
             argmax = i;
