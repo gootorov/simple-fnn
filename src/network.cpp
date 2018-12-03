@@ -12,36 +12,31 @@ Network::Network(std::size_t layers, std::size_t width, double learning_rate) :
     layers{layers, Layer{width, width}},
     learning_rate{learning_rate}
 {
-    // The biases of neurons in the first layer
-    // should be initialized to 0 and its width must be 28 x 28 = 784.
     this->layers.insert(this->layers.begin(), Layer{width, 784});
 
-    // The last layer always has the width of 10.
     this->layers.push_back(Layer{10, width});
 }
 
-Eigen::VectorXd Network::forward_propagate(Eigen::VectorXd image) {
-    // propagate that vector.
+Vec Network::forward_propagate(Vec input) {
     for (auto& layer : layers) {
-        layer.forward_propagate(image);
+        layer.forward_propagate(input);
     }
 
-    return image;
+    return input;
 }
 
-Gradient Network::backpropagate(Eigen::VectorXd net_output, Eigen::VectorXd label) const {
-    // initialize the gradient.
+Gradient Network::backpropagate(const Vec& net_output, const Vec& label) const {
     auto gradient = Gradient(layers.size());
 
     // compute the error in the output layer.
-    auto output_err = learning_rate * (net_output - label)
+    const auto output_err = learning_rate * (net_output - label)
         .cwiseProduct(net_output.unaryExpr(&internal::d_sigmoid));
 
     // add that error as the gradient component.
     gradient(layers.size() - 1) = output_err;
 
     // add remaining errors to the gradient.
-    for (int i = layers.size() - 2; i > -1; i--) {
+    for (int i = layers.size() - 2; i >= 0; i--) {
         const auto& layer = layers[i];
         const auto& prev_layer = layers[i + 1];
 
@@ -51,8 +46,8 @@ Gradient Network::backpropagate(Eigen::VectorXd net_output, Eigen::VectorXd labe
     return gradient;
 }
 
-void Network::gradient_descent(Gradient gradient) {
-    for (int i = layers.size() - 1; i > -1; i--) {
+void Network::gradient_descent(const Gradient& gradient) {
+    for (int i = layers.size() - 1; i >= 0; i--) {
         auto& layer = layers[i];
 
         layer.gradient_descent(gradient(i));
@@ -64,9 +59,10 @@ void Network::learn(const Data& training_data, const Labels& labels, bool debug)
         const auto& image = training_data[i];
         const auto& label = labels[i];
 
-        auto net_output = forward_propagate(image);
-        auto gradient = backpropagate(net_output, label);
+        const auto net_output = forward_propagate(image);
+        const auto gradient = backpropagate(net_output, label);
         gradient_descent(gradient);
+
         if (debug) {
             std::cout << "Cost: " << (label - net_output).norm() << "\n";
         }
@@ -91,10 +87,10 @@ double Network::cost(const Data& data, const Labels& labels) {
     double cost{};
 
     for (std::size_t i = 0; i < data.size(); i++) {
-        auto image = data[i];
-        auto label = labels[i];
+        const auto& image = data[i];
+        const auto& label = labels[i];
 
-        auto prediction = forward_propagate(image);
+        const auto prediction = forward_propagate(image);
         cost += (label - prediction).squaredNorm();
     }
 

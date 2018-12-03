@@ -9,6 +9,7 @@
 namespace NeuralNet {
 
 using Gradient = Eigen::Array<Eigen::VectorXd, Eigen::Dynamic, 1>;
+using Vec = Eigen::VectorXd;
 
 /// @brief Type that represents a fully connected neural network.
 class Network {
@@ -28,18 +29,18 @@ private:
     /// @brief Propagate the input vector throught the Network.
     /// @param input Input vector, e.g. a MNIST image.
     /// @return Propagated vector.
-    Eigen::VectorXd forward_propagate(Eigen::VectorXd input);
+    Vec forward_propagate(Vec input);
 
     /// @brief Given the output of the Network and the label,
     /// computes the output error backpropagates it.
     /// @param net_output Output of the Network, i.e. forward propagated input.
     /// @param label The desired output of the Network.
     /// @return The Gradient vector.
-    Gradient backpropagate(Eigen::VectorXd net_output, Eigen::VectorXd label) const;
+    Gradient backpropagate(const Vec& net_output, const Vec& label) const;
 
     /// @brief Given the gradient vector, applies it to the Network's weights and biases.
     /// @param gradient The gradient vector.
-    void gradient_descent(Gradient gradient);
+    void gradient_descent(const Gradient& gradient);
 
 public:
     /// @brief Default constructor.

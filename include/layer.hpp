@@ -5,6 +5,8 @@
 
 namespace NeuralNet {
 
+using Vec = Eigen::VectorXd;
+
 /// @brief The type that represents a Layer in the Network.
 class Layer {
 private:
@@ -40,18 +42,18 @@ public:
     /// @brief Given an input vector, propagates it through this Layer.
     /// @param input The input vector, i.e. a MNIST image or the output of the
     /// previous Layer.
-    void forward_propagate(Eigen::VectorXd& input);
+    void forward_propagate(Vec& input);
 
     /// @brief Backpropagates the error from the previous Layer.
     /// @param prev_err The error of the previous Layer.
     /// @param prev_layer Pointer to the previous Layer.
     /// @return The component of the Gradient vector.
-    Eigen::VectorXd backpropagate(Eigen::VectorXd prev_err, const Layer& prev_layer) const;
+    Vec backpropagate(const Vec& prev_err, const Layer& prev_layer) const;
 
     /// @brief Given a Gradient vector component, applies a gradient descent step
     /// to weights and biases in this Layer.
     /// @param gradient The gradient.
-    void gradient_descent(Eigen::VectorXd gradient);
+    void gradient_descent(const Vec& gradient);
 };
 
 } // namespace NeuralNet

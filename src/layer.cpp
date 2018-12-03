@@ -1,5 +1,6 @@
 #include "internal.hpp"
 #include "layer.hpp"
+#include "network.hpp"
 
 namespace NeuralNet {
 
@@ -24,13 +25,13 @@ Layer::Layer(std::size_t width, std::size_t width_prev_layer, double bias) :
     this->weights = weights.unaryExpr(&internal::random);
 }
 
-void Layer::forward_propagate(Eigen::VectorXd& input) {
+void Layer::forward_propagate(Vec& input) {
     this->prev_activation = input;
     // propagate the vector
     input = (weights * input + biases).unaryExpr(&internal::sigmoid);
 }
 
-Eigen::VectorXd Layer::backpropagate(Eigen::VectorXd prev_err, const Layer& prev_layer) const {
+Vec Layer::backpropagate(const Vec& prev_err, const Layer& prev_layer) const {
     // activation of this layer.
     const auto& activation = prev_layer.prev_activation;
 
@@ -38,7 +39,7 @@ Eigen::VectorXd Layer::backpropagate(Eigen::VectorXd prev_err, const Layer& prev
         .cwiseProduct(activation.unaryExpr(&internal::d_sigmoid));
 }
 
-void Layer::gradient_descent(Eigen::VectorXd gradient) {
+void Layer::gradient_descent(const Vec& gradient) {
     this->weights -= gradient * prev_activation.transpose();
     this->biases -= gradient;
 }
