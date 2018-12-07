@@ -17,6 +17,29 @@ Network::Network(std::size_t layers, std::size_t width, double learning_rate) :
     this->layers.push_back(Layer{10, width});
 }
 
+Network::Network(std::size_t i_layer, int h_layers, std::size_t h_width,
+        std::size_t o_layer,
+        double learning_rate) :
+    learning_rate{learning_rate}
+{
+    this->layers.push_back(Layer{h_width, i_layer});
+    for (int i = 0; i < h_layers; i++) {
+        this->layers.push_back(Layer{h_width, h_width});
+    }
+    this->layers.push_back(Layer{o_layer, h_width});
+}
+
+Network::Network(std::vector<std::size_t> layers, double learning_rate) :
+    learning_rate{learning_rate}
+{
+    for (std::size_t i = 0; i < layers.size() - 1; i++) {
+        const auto& layer = layers[i];
+        const auto& next_layer = layers[i + 1];
+
+        this->layers.push_back(Layer{next_layer, layer});
+    }
+}
+
 Vec Network::forward_propagate(Vec input) {
     for (auto& layer : layers) {
         layer.forward_propagate(input);

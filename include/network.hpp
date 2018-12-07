@@ -51,6 +51,17 @@ public:
     /// @param learning_rate The learning rate.
     Network(std::size_t layers, std::size_t width, double learning_rate);
 
+    /// @param i_layer The number of neurons in the input layer.
+    /// @param h_layer The number of hidden layers.
+    /// @param h_width The number of neurons in the hidden layers.
+    /// @param o_layer The number of neurons in the output layer.
+    /// @param learning_rate The learning rate.
+    Network(std::size_t i_layer, int h_layers, std::size_t h_width, std::size_t o_layer, double learning_rate);
+
+    /// @param layers The dimensions of the layers in this Network.
+    /// @param learning_rate The learning rate.
+    Network(std::vector<std::size_t> layers, double learning_rate);
+
     /// @brief Given the training data and labels, the Network learns.
     /// @param training_data Training data, e.g. MNIST images.
     /// @param labels Labels for to the Data, e.g. the actual numbers depicted in MNIST images.
