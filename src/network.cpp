@@ -22,6 +22,7 @@ Network::Network(std::size_t i_layer, int h_layers, std::size_t h_width,
         double learning_rate) :
     learning_rate{learning_rate}
 {
+    this->layers.resize(h_layers + 2);
     this->layers.push_back(Layer{h_width, i_layer});
     for (int i = 0; i < h_layers; i++) {
         this->layers.push_back(Layer{h_width, h_width});
@@ -32,6 +33,7 @@ Network::Network(std::size_t i_layer, int h_layers, std::size_t h_width,
 Network::Network(std::vector<std::size_t> layers, double learning_rate) :
     learning_rate{learning_rate}
 {
+    this->layers.resize(layers.size());
     for (std::size_t i = 0; i < layers.size() - 1; i++) {
         const auto& layer = layers[i];
         const auto& next_layer = layers[i + 1];
