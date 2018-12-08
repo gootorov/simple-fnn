@@ -3,30 +3,32 @@
   <compound refid="classNeuralNet_1_1Layer" kind="class"><name>NeuralNet::Layer</name>
     <member refid="classNeuralNet_1_1Layer_1a56ffa97c4a85842fcbe5b1154373b4e8" kind="variable"><name>weights</name></member>
     <member refid="classNeuralNet_1_1Layer_1a21e7c6e3bfe027f34cc9c64454f414c4" kind="variable"><name>biases</name></member>
-    <member refid="classNeuralNet_1_1Layer_1ad0b2b00da89551a2974ce5ced8ca0239" kind="variable"><name>activation</name></member>
     <member refid="classNeuralNet_1_1Layer_1a90bd996c99ace3bb41e0607818be61e3" kind="variable"><name>prev_activation</name></member>
     <member refid="classNeuralNet_1_1Layer_1a4ac3fd71b49705e41975d4f2a55980eb" kind="function"><name>Layer</name></member>
     <member refid="classNeuralNet_1_1Layer_1a07a11dc0120270973bba536bfa5513eb" kind="function"><name>Layer</name></member>
     <member refid="classNeuralNet_1_1Layer_1a4c948d1fb350db5508bf287a0b06ac37" kind="function"><name>Layer</name></member>
-    <member refid="classNeuralNet_1_1Layer_1a74bc7f8e42d2918d5bb93e3b400cca21" kind="function"><name>forward_propagate</name></member>
-    <member refid="classNeuralNet_1_1Layer_1a5a84c53b503c251b4e002dc02886f504" kind="function"><name>backpropagate</name></member>
-    <member refid="classNeuralNet_1_1Layer_1a8cddb1c030d43b6a9a606e53c489d37f" kind="function"><name>gradient_descent</name></member>
+    <member refid="classNeuralNet_1_1Layer_1aecefe03ceff96fd6652f62b46fe7ef09" kind="function"><name>forward_propagate</name></member>
+    <member refid="classNeuralNet_1_1Layer_1ad694814a98b7c48b1502054f56a1f9b6" kind="function"><name>backpropagate</name></member>
+    <member refid="classNeuralNet_1_1Layer_1a645fc86eb170fb950b0e175dac74e9b7" kind="function"><name>gradient_descent</name></member>
   </compound>
   <compound refid="classNeuralNet_1_1Network" kind="class"><name>NeuralNet::Network</name>
     <member refid="classNeuralNet_1_1Network_1aba0b9de75a6e6f1711acca9046188620" kind="typedef"><name>Data</name></member>
     <member refid="classNeuralNet_1_1Network_1a93a4673467118815221537ee8ffe8088" kind="typedef"><name>Labels</name></member>
     <member refid="classNeuralNet_1_1Network_1a7205ef7ebbdda2f2bc507aaa966ee3bc" kind="variable"><name>layers</name></member>
     <member refid="classNeuralNet_1_1Network_1a67489117bff9ade515f7ac217cde9c80" kind="variable"><name>learning_rate</name></member>
-    <member refid="classNeuralNet_1_1Network_1abbfadb6ce63698dba827ba04a5de8481" kind="function"><name>forward_propagate</name></member>
-    <member refid="classNeuralNet_1_1Network_1a4859bc14b4a78724e16122e3044dd58f" kind="function"><name>backpropagate</name></member>
-    <member refid="classNeuralNet_1_1Network_1a2d1c5cda46ec12b6aa03b32eea4f5c68" kind="function"><name>gradient_descent</name></member>
+    <member refid="classNeuralNet_1_1Network_1a4b52338d0e9a2400a5c3ea5711e6d823" kind="function"><name>backpropagate</name></member>
+    <member refid="classNeuralNet_1_1Network_1a1c11efb83bcb45716907a2b69a06c08d" kind="function"><name>gradient_descent</name></member>
     <member refid="classNeuralNet_1_1Network_1ab6cc4afdee36ab5bb874f1bba04dd6a2" kind="function"><name>Network</name></member>
     <member refid="classNeuralNet_1_1Network_1a2ef6caef5c1d20966d723e81b00e1de4" kind="function"><name>Network</name></member>
+    <member refid="classNeuralNet_1_1Network_1aa17dbf88782222a51cc0de22df1e00c8" kind="function"><name>Network</name></member>
+    <member refid="classNeuralNet_1_1Network_1a063396b17ba044213a8a7015f9725d9d" kind="function"><name>Network</name></member>
+    <member refid="classNeuralNet_1_1Network_1a9bfb9d280bf4207b6451eee3a2a1a3f5" kind="function"><name>forward_propagate</name></member>
     <member refid="classNeuralNet_1_1Network_1a1b3e623483150be8e78b5f8a40b71f3d" kind="function"><name>learn</name></member>
     <member refid="classNeuralNet_1_1Network_1af2f2d99561a34c1d02b093805d8ea916" kind="function"><name>accuracy</name></member>
     <member refid="classNeuralNet_1_1Network_1a69395d6dc327ee8576cf082aa60c047b" kind="function"><name>cost</name></member>
   </compound>
   <compound refid="namespaceNeuralNet" kind="namespace"><name>NeuralNet</name>
+    <member refid="namespaceNeuralNet_1af08b67ff9676b8d40d67c7d6b82799bb" kind="typedef"><name>Vec</name></member>
     <member refid="namespaceNeuralNet_1a0f09da558f983d46b08d0cfaeb912864" kind="typedef"><name>Gradient</name></member>
   </compound>
   <compound refid="namespaceNeuralNet_1_1internal" kind="namespace"><name>NeuralNet::internal</name>

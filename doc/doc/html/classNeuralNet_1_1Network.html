@@ -63,12 +63,21 @@
           <h2><a href="#typeless-methods">Constructors, destructors, conversion operators</a></h2>
           <dl class="m-dox">
             <dt>
-              <span class="m-dox-wrap-bumper"><a href="#ab6cc4afdee36ab5bb874f1bba04dd6a2" class="m-dox-self" name="ab6cc4afdee36ab5bb874f1bba04dd6a2">Network</a>(</span><span class="m-dox-wrap">) <span class="m-label m-flat m-info">defaulted</span></span>
-            </dt>
-            <dd>Default constructor.</dd>
-            <dt>
               <span class="m-dox-wrap-bumper"><a href="#a2ef6caef5c1d20966d723e81b00e1de4" class="m-dox">Network</a>(</span><span class="m-dox-wrap">std::size_t layers,
               std::size_t width,
+              double learning_rate)</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-dox-wrap-bumper"><a href="#aa17dbf88782222a51cc0de22df1e00c8" class="m-dox">Network</a>(</span><span class="m-dox-wrap">std::size_t i_layer,
+              int h_layers,
+              std::size_t h_width,
+              std::size_t o_layer,
+              double learning_rate)</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-dox-wrap-bumper"><a href="#a063396b17ba044213a8a7015f9725d9d" class="m-dox">Network</a>(</span><span class="m-dox-wrap">std::vector&lt;std::size_t&gt; layers,
               double learning_rate)</span>
             </dt>
             <dd></dd>
@@ -77,6 +86,10 @@
         <section id="pub-methods">
           <h2><a href="#pub-methods">Public functions</a></h2>
           <dl class="m-dox">
+            <dt>
+              <span class="m-dox-wrap-bumper">auto <a href="#a9bfb9d280bf4207b6451eee3a2a1a3f5" class="m-dox">forward_propagate</a>(</span><span class="m-dox-wrap"><a href="namespaceNeuralNet.html#af08b67ff9676b8d40d67c7d6b82799bb" class="m-dox">Vec</a> input) -&gt; <a href="namespaceNeuralNet.html#af08b67ff9676b8d40d67c7d6b82799bb" class="m-dox">Vec</a></span>
+            </dt>
+            <dd>Propagates the input vector throught the <a href="classNeuralNet_1_1Network.html" class="m-dox">Network</a>.</dd>
             <dt>
               <span class="m-dox-wrap-bumper">void <a href="#a1b3e623483150be8e78b5f8a40b71f3d" class="m-dox">learn</a>(</span><span class="m-dox-wrap">const <a href="classNeuralNet_1_1Network.html#aba0b9de75a6e6f1711acca9046188620" class="m-dox">Data</a>&amp; training_data,
               const <a href="classNeuralNet_1_1Network.html#a93a4673467118815221537ee8ffe8088" class="m-dox">Labels</a>&amp; labels,
@@ -121,6 +134,86 @@
                   <td>The learning rate.</td>
                 </tr>
               </tbody>
+            </table>
+          </div></section>
+          <section class="m-dox-details" id="aa17dbf88782222a51cc0de22df1e00c8"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper"> NeuralNet::<wbr />Network::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#aa17dbf88782222a51cc0de22df1e00c8" class="m-dox-self">Network</a>(</span><span class="m-dox-wrap">std::size_t i_layer,
+              int h_layers,
+              std::size_t h_width,
+              std::size_t o_layer,
+              double learning_rate)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">i_layer</td>
+                  <td>The number of neurons in the input layer.</td>
+                </tr>
+                <tr>
+                  <td>h_layers</td>
+                  <td>The number of hidden layers.</td>
+                </tr>
+                <tr>
+                  <td>h_width</td>
+                  <td>The number of neurons in the hidden layers.</td>
+                </tr>
+                <tr>
+                  <td>o_layer</td>
+                  <td>The number of neurons in the output layer.</td>
+                </tr>
+                <tr>
+                  <td>learning_rate</td>
+                  <td>The learning rate.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-dox-details" id="a063396b17ba044213a8a7015f9725d9d"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper"> NeuralNet::<wbr />Network::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a063396b17ba044213a8a7015f9725d9d" class="m-dox-self">Network</a>(</span><span class="m-dox-wrap">std::vector&lt;std::size_t&gt; layers,
+              double learning_rate)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">layers</td>
+                  <td>The dimensions of the layers in this <a href="classNeuralNet_1_1Network.html" class="m-dox">Network</a>.</td>
+                </tr>
+                <tr>
+                  <td>learning_rate</td>
+                  <td>The learning rate.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-dox-details" id="a9bfb9d280bf4207b6451eee3a2a1a3f5"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper"><a href="namespaceNeuralNet.html#af08b67ff9676b8d40d67c7d6b82799bb" class="m-dox">Vec</a> NeuralNet::<wbr />Network::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a9bfb9d280bf4207b6451eee3a2a1a3f5" class="m-dox-self">forward_propagate</a>(</span><span class="m-dox-wrap"><a href="namespaceNeuralNet.html#af08b67ff9676b8d40d67c7d6b82799bb" class="m-dox">Vec</a> input)</span></span>
+            </h3>
+            <p>Propagates the input vector throught the <a href="classNeuralNet_1_1Network.html" class="m-dox">Network</a>.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">input</td>
+                  <td>Input vector, e.g. a MNIST image.</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Propagated vector.</td>
+                </tr>
+              </tfoot>
             </table>
           </div></section>
           <section class="m-dox-details" id="a1b3e623483150be8e78b5f8a40b71f3d"><div>

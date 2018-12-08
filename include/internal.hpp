@@ -5,7 +5,7 @@
 
 namespace NeuralNet {
 
-/// @brief Contains helper functions used throughout the NeuralNet library.
+/// @brief Contains helper functions used throughout the NeuralNet library that are not part of the public API.
 namespace internal {
 
 /// @brief Given a vector, returns the index of the largest component.

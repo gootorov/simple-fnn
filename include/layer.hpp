@@ -47,7 +47,7 @@ public:
     /// @brief Backpropagates the error from the previous Layer.
     /// @param prev_err The error of the previous Layer.
     /// @param prev_layer Pointer to the previous Layer.
-    /// @return The component of the Gradient vector.
+    /// @return The component of the Gradient vector for this Layer.
     Vec backpropagate(const Vec& prev_err, const Layer& prev_layer) const;
 
     /// @brief Given a Gradient vector component, applies a gradient descent step

@@ -27,7 +27,7 @@ private:
     double learning_rate{};
 
     /// @brief Given the output of the Network and the label,
-    /// computes the output error backpropagates it.
+    /// computes the output error and backpropagates it.
     /// @param net_output Output of the Network, i.e. forward propagated input.
     /// @param label The desired output of the Network.
     /// @return The Gradient vector.
@@ -38,7 +38,6 @@ private:
     void gradient_descent(const Gradient& gradient);
 
 public:
-    /// @brief Default constructor.
     Network() = default;
 
     /// @param layers The number of hidden Layers in this Network.
@@ -47,7 +46,7 @@ public:
     Network(std::size_t layers, std::size_t width, double learning_rate);
 
     /// @param i_layer The number of neurons in the input layer.
-    /// @param h_layer The number of hidden layers.
+    /// @param h_layers The number of hidden layers.
     /// @param h_width The number of neurons in the hidden layers.
     /// @param o_layer The number of neurons in the output layer.
     /// @param learning_rate The learning rate.
@@ -57,7 +56,7 @@ public:
     /// @param learning_rate The learning rate.
     Network(std::vector<std::size_t> layers, double learning_rate);
 
-    /// @brief Propagate the input vector throught the Network.
+    /// @brief Propagates the input vector throught the Network.
     /// @param input Input vector, e.g. a MNIST image.
     /// @return Propagated vector.
     Vec forward_propagate(Vec input);

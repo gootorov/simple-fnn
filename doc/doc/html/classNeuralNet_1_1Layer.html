@@ -79,16 +79,16 @@
           <h2><a href="#pub-methods">Public functions</a></h2>
           <dl class="m-dox">
             <dt>
-              <span class="m-dox-wrap-bumper">void <a href="#a74bc7f8e42d2918d5bb93e3b400cca21" class="m-dox">forward_propagate</a>(</span><span class="m-dox-wrap">Eigen::VectorXd&amp; input)</span>
+              <span class="m-dox-wrap-bumper">void <a href="#aecefe03ceff96fd6652f62b46fe7ef09" class="m-dox">forward_propagate</a>(</span><span class="m-dox-wrap"><a href="namespaceNeuralNet.html#af08b67ff9676b8d40d67c7d6b82799bb" class="m-dox">Vec</a>&amp; input)</span>
             </dt>
             <dd>Given an input vector, propagates it through this <a href="classNeuralNet_1_1Layer.html" class="m-dox">Layer</a>.</dd>
             <dt>
-              <span class="m-dox-wrap-bumper">auto <a href="#a5a84c53b503c251b4e002dc02886f504" class="m-dox">backpropagate</a>(</span><span class="m-dox-wrap">Eigen::VectorXd prev_err,
-              const <a href="classNeuralNet_1_1Layer.html" class="m-dox">Layer</a>&amp; prev_layer) const -&gt; Eigen::VectorXd</span>
+              <span class="m-dox-wrap-bumper">auto <a href="#ad694814a98b7c48b1502054f56a1f9b6" class="m-dox">backpropagate</a>(</span><span class="m-dox-wrap">const <a href="namespaceNeuralNet.html#af08b67ff9676b8d40d67c7d6b82799bb" class="m-dox">Vec</a>&amp; prev_err,
+              const <a href="classNeuralNet_1_1Layer.html" class="m-dox">Layer</a>&amp; prev_layer) const -&gt; <a href="namespaceNeuralNet.html#af08b67ff9676b8d40d67c7d6b82799bb" class="m-dox">Vec</a></span>
             </dt>
             <dd>Backpropagates the error from the previous <a href="classNeuralNet_1_1Layer.html" class="m-dox">Layer</a>.</dd>
             <dt>
-              <span class="m-dox-wrap-bumper">void <a href="#a8cddb1c030d43b6a9a606e53c489d37f" class="m-dox">gradient_descent</a>(</span><span class="m-dox-wrap">Eigen::VectorXd gradient)</span>
+              <span class="m-dox-wrap-bumper">void <a href="#a645fc86eb170fb950b0e175dac74e9b7" class="m-dox">gradient_descent</a>(</span><span class="m-dox-wrap">const <a href="namespaceNeuralNet.html#af08b67ff9676b8d40d67c7d6b82799bb" class="m-dox">Vec</a>&amp; gradient)</span>
             </dt>
             <dd>Given a Gradient vector component, applies a gradient descent step to weights and biases in this <a href="classNeuralNet_1_1Layer.html" class="m-dox">Layer</a>.</dd>
           </dl>
@@ -142,9 +142,9 @@
               </tbody>
             </table>
           </div></section>
-          <section class="m-dox-details" id="a74bc7f8e42d2918d5bb93e3b400cca21"><div>
+          <section class="m-dox-details" id="aecefe03ceff96fd6652f62b46fe7ef09"><div>
             <h3>
-              <span class="m-dox-wrap-bumper">void NeuralNet::<wbr />Layer::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a74bc7f8e42d2918d5bb93e3b400cca21" class="m-dox-self">forward_propagate</a>(</span><span class="m-dox-wrap">Eigen::VectorXd&amp; input)</span></span>
+              <span class="m-dox-wrap-bumper">void NeuralNet::<wbr />Layer::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#aecefe03ceff96fd6652f62b46fe7ef09" class="m-dox-self">forward_propagate</a>(</span><span class="m-dox-wrap"><a href="namespaceNeuralNet.html#af08b67ff9676b8d40d67c7d6b82799bb" class="m-dox">Vec</a>&amp; input)</span></span>
             </h3>
             <p>Given an input vector, propagates it through this <a href="classNeuralNet_1_1Layer.html" class="m-dox">Layer</a>.</p>
             <table class="m-table m-fullwidth m-flat">
@@ -159,9 +159,9 @@
               </tbody>
             </table>
           </div></section>
-          <section class="m-dox-details" id="a5a84c53b503c251b4e002dc02886f504"><div>
+          <section class="m-dox-details" id="ad694814a98b7c48b1502054f56a1f9b6"><div>
             <h3>
-              <span class="m-dox-wrap-bumper">Eigen::VectorXd NeuralNet::<wbr />Layer::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a5a84c53b503c251b4e002dc02886f504" class="m-dox-self">backpropagate</a>(</span><span class="m-dox-wrap">Eigen::VectorXd prev_err,
+              <span class="m-dox-wrap-bumper"><a href="namespaceNeuralNet.html#af08b67ff9676b8d40d67c7d6b82799bb" class="m-dox">Vec</a> NeuralNet::<wbr />Layer::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#ad694814a98b7c48b1502054f56a1f9b6" class="m-dox-self">backpropagate</a>(</span><span class="m-dox-wrap">const <a href="namespaceNeuralNet.html#af08b67ff9676b8d40d67c7d6b82799bb" class="m-dox">Vec</a>&amp; prev_err,
               const <a href="classNeuralNet_1_1Layer.html" class="m-dox">Layer</a>&amp; prev_layer) const</span></span>
             </h3>
             <p>Backpropagates the error from the previous <a href="classNeuralNet_1_1Layer.html" class="m-dox">Layer</a>.</p>
@@ -182,14 +182,14 @@
               <tfoot>
                 <tr>
                   <th>Returns</th>
-                  <td>The component of the Gradient vector.</td>
+                  <td>The component of the Gradient vector for this <a href="classNeuralNet_1_1Layer.html" class="m-dox">Layer</a>.</td>
                 </tr>
               </tfoot>
             </table>
           </div></section>
-          <section class="m-dox-details" id="a8cddb1c030d43b6a9a606e53c489d37f"><div>
+          <section class="m-dox-details" id="a645fc86eb170fb950b0e175dac74e9b7"><div>
             <h3>
-              <span class="m-dox-wrap-bumper">void NeuralNet::<wbr />Layer::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a8cddb1c030d43b6a9a606e53c489d37f" class="m-dox-self">gradient_descent</a>(</span><span class="m-dox-wrap">Eigen::VectorXd gradient)</span></span>
+              <span class="m-dox-wrap-bumper">void NeuralNet::<wbr />Layer::<wbr /></span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a645fc86eb170fb950b0e175dac74e9b7" class="m-dox-self">gradient_descent</a>(</span><span class="m-dox-wrap">const <a href="namespaceNeuralNet.html#af08b67ff9676b8d40d67c7d6b82799bb" class="m-dox">Vec</a>&amp; gradient)</span></span>
             </h3>
             <p>Given a Gradient vector component, applies a gradient descent step to weights and biases in this <a href="classNeuralNet_1_1Layer.html" class="m-dox">Layer</a>.</p>
             <table class="m-table m-fullwidth m-flat">

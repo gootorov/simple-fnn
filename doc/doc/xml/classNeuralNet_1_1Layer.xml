@@ -16,7 +16,7 @@
 <para>Each nth row represents a vector of weights connected to the nth neuron. The dimension of the weight matrix is layer_width x previous_layer_width. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/null/dev/cpp/neural_net/include/layer.hpp" line="15" column="1" bodyfile="/home/null/dev/cpp/neural_net/include/layer.hpp" bodystart="15" bodyend="-1"/>
+        <location file="/home/null/dev/cpp/neural_net/include/layer.hpp" line="17" column="1" bodyfile="/home/null/dev/cpp/neural_net/include/layer.hpp" bodystart="17" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classNeuralNet_1_1Layer_1a21e7c6e3bfe027f34cc9c64454f414c4" prot="private" static="no" mutable="no">
         <type>Eigen::VectorXd</type>
@@ -30,21 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/null/dev/cpp/neural_net/include/layer.hpp" line="18" column="1" bodyfile="/home/null/dev/cpp/neural_net/include/layer.hpp" bodystart="18" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="classNeuralNet_1_1Layer_1ad0b2b00da89551a2974ce5ced8ca0239" prot="private" static="no" mutable="no">
-        <type>Eigen::VectorXd</type>
-        <definition>Eigen::VectorXd NeuralNet::Layer::activation</definition>
-        <argsstring></argsstring>
-        <name>activation</name>
-        <initializer>{}</initializer>
-        <briefdescription>
-<para>Stores the activation of this <ref refid="classNeuralNet_1_1Layer" kindref="compound">Layer</ref>. </para>        </briefdescription>
-        <detaileddescription>
-<para>The activation of this <ref refid="classNeuralNet_1_1Layer" kindref="compound">Layer</ref> is used to compute the error during backpropagation. </para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/null/dev/cpp/neural_net/include/layer.hpp" line="23" column="1" bodyfile="/home/null/dev/cpp/neural_net/include/layer.hpp" bodystart="23" bodyend="-1"/>
+        <location file="/home/null/dev/cpp/neural_net/include/layer.hpp" line="20" column="1" bodyfile="/home/null/dev/cpp/neural_net/include/layer.hpp" bodystart="20" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classNeuralNet_1_1Layer_1a90bd996c99ace3bb41e0607818be61e3" prot="private" static="no" mutable="no">
         <type>Eigen::VectorXd</type>
@@ -55,10 +41,10 @@
         <briefdescription>
 <para>Stores activation of the preceeding <ref refid="classNeuralNet_1_1Layer" kindref="compound">Layer</ref>. </para>        </briefdescription>
         <detaileddescription>
-<para>The activation of the previous <ref refid="classNeuralNet_1_1Layer" kindref="compound">Layer</ref> is used to compute the gradient descent step. </para>        </detaileddescription>
+<para>The activation of the previous <ref refid="classNeuralNet_1_1Layer" kindref="compound">Layer</ref> is used to compute the gradient descent step and the error during backpropagation. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/null/dev/cpp/neural_net/include/layer.hpp" line="28" column="1" bodyfile="/home/null/dev/cpp/neural_net/include/layer.hpp" bodystart="28" bodyend="-1"/>
+        <location file="/home/null/dev/cpp/neural_net/include/layer.hpp" line="26" column="1" bodyfile="/home/null/dev/cpp/neural_net/include/layer.hpp" bodystart="26" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -73,7 +59,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/null/dev/cpp/neural_net/include/layer.hpp" line="31" column="1"/>
+        <location file="/home/null/dev/cpp/neural_net/include/layer.hpp" line="29" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classNeuralNet_1_1Layer_1a07a11dc0120270973bba536bfa5513eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -109,7 +95,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/null/dev/cpp/neural_net/include/layer.hpp" line="36" column="1" bodyfile="/home/null/dev/cpp/neural_net/src/layer.cpp" bodystart="6" bodyend="15"/>
+        <location file="/home/null/dev/cpp/neural_net/include/layer.hpp" line="34" column="1" bodyfile="/home/null/dev/cpp/neural_net/src/layer.cpp" bodystart="7" bodyend="15"/>
       </memberdef>
       <memberdef kind="function" id="classNeuralNet_1_1Layer_1a4c948d1fb350db5508bf287a0b06ac37" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -156,15 +142,15 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/null/dev/cpp/neural_net/include/layer.hpp" line="42" column="1" bodyfile="/home/null/dev/cpp/neural_net/src/layer.cpp" bodystart="17" bodyend="27"/>
+        <location file="/home/null/dev/cpp/neural_net/include/layer.hpp" line="40" column="1" bodyfile="/home/null/dev/cpp/neural_net/src/layer.cpp" bodystart="17" bodyend="26"/>
       </memberdef>
-      <memberdef kind="function" id="classNeuralNet_1_1Layer_1a74bc7f8e42d2918d5bb93e3b400cca21" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classNeuralNet_1_1Layer_1aecefe03ceff96fd6652f62b46fe7ef09" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void NeuralNet::Layer::forward_propagate</definition>
-        <argsstring>(Eigen::VectorXd &amp;input)</argsstring>
+        <argsstring>(Vec &amp;input)</argsstring>
         <name>forward_propagate</name>
         <param>
-          <type>Eigen::VectorXd &amp;</type>
+          <type><ref refid="namespaceNeuralNet_1af08b67ff9676b8d40d67c7d6b82799bb" kindref="member">Vec</ref> &amp;</type>
           <declname>input</declname>
         </param>
         <briefdescription>
@@ -181,15 +167,15 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/null/dev/cpp/neural_net/include/layer.hpp" line="47" column="1" bodyfile="/home/null/dev/cpp/neural_net/src/layer.cpp" bodystart="29" bodyend="34"/>
+        <location file="/home/null/dev/cpp/neural_net/include/layer.hpp" line="45" column="1" bodyfile="/home/null/dev/cpp/neural_net/src/layer.cpp" bodystart="28" bodyend="32"/>
       </memberdef>
-      <memberdef kind="function" id="classNeuralNet_1_1Layer_1a5a84c53b503c251b4e002dc02886f504" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>Eigen::VectorXd</type>
-        <definition>Eigen::VectorXd NeuralNet::Layer::backpropagate</definition>
-        <argsstring>(Eigen::VectorXd prev_err, const Layer &amp;prev_layer) const</argsstring>
+      <memberdef kind="function" id="classNeuralNet_1_1Layer_1ad694814a98b7c48b1502054f56a1f9b6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceNeuralNet_1af08b67ff9676b8d40d67c7d6b82799bb" kindref="member">Vec</ref></type>
+        <definition>Vec NeuralNet::Layer::backpropagate</definition>
+        <argsstring>(const Vec &amp;prev_err, const Layer &amp;prev_layer) const</argsstring>
         <name>backpropagate</name>
         <param>
-          <type>Eigen::VectorXd</type>
+          <type>const <ref refid="namespaceNeuralNet_1af08b67ff9676b8d40d67c7d6b82799bb" kindref="member">Vec</ref> &amp;</type>
           <declname>prev_err</declname>
         </param>
         <param>
@@ -214,19 +200,19 @@
 <para>Pointer to the previous <ref refid="classNeuralNet_1_1Layer" kindref="compound">Layer</ref>. </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>The component of the Gradient vector. </para></simplesect>
+<simplesect kind="return"><para>The component of the Gradient vector for this <ref refid="classNeuralNet_1_1Layer" kindref="compound">Layer</ref>. </para></simplesect>
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/null/dev/cpp/neural_net/include/layer.hpp" line="53" column="1" bodyfile="/home/null/dev/cpp/neural_net/src/layer.cpp" bodystart="36" bodyend="39"/>
+        <location file="/home/null/dev/cpp/neural_net/include/layer.hpp" line="51" column="1" bodyfile="/home/null/dev/cpp/neural_net/src/layer.cpp" bodystart="34" bodyend="40"/>
       </memberdef>
-      <memberdef kind="function" id="classNeuralNet_1_1Layer_1a8cddb1c030d43b6a9a606e53c489d37f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classNeuralNet_1_1Layer_1a645fc86eb170fb950b0e175dac74e9b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void NeuralNet::Layer::gradient_descent</definition>
-        <argsstring>(Eigen::VectorXd gradient)</argsstring>
+        <argsstring>(const Vec &amp;gradient)</argsstring>
         <name>gradient_descent</name>
         <param>
-          <type>Eigen::VectorXd</type>
+          <type>const <ref refid="namespaceNeuralNet_1af08b67ff9676b8d40d67c7d6b82799bb" kindref="member">Vec</ref> &amp;</type>
           <declname>gradient</declname>
         </param>
         <briefdescription>
@@ -243,20 +229,19 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/null/dev/cpp/neural_net/include/layer.hpp" line="58" column="1" bodyfile="/home/null/dev/cpp/neural_net/src/layer.cpp" bodystart="41" bodyend="44"/>
+        <location file="/home/null/dev/cpp/neural_net/include/layer.hpp" line="56" column="1" bodyfile="/home/null/dev/cpp/neural_net/src/layer.cpp" bodystart="42" bodyend="45"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
 <para>The type that represents a <ref refid="classNeuralNet_1_1Layer" kindref="compound">Layer</ref> in the <ref refid="classNeuralNet_1_1Network" kindref="compound">Network</ref>. </para>    </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="/home/null/dev/cpp/neural_net/include/layer.hpp" line="9" column="1" bodyfile="/home/null/dev/cpp/neural_net/include/layer.hpp" bodystart="9" bodyend="59"/>
+    <location file="/home/null/dev/cpp/neural_net/include/layer.hpp" line="11" column="1" bodyfile="/home/null/dev/cpp/neural_net/include/layer.hpp" bodystart="11" bodyend="57"/>
     <listofallmembers>
-      <member refid="classNeuralNet_1_1Layer_1ad0b2b00da89551a2974ce5ced8ca0239" prot="private" virt="non-virtual"><scope>NeuralNet::Layer</scope><name>activation</name></member>
-      <member refid="classNeuralNet_1_1Layer_1a5a84c53b503c251b4e002dc02886f504" prot="public" virt="non-virtual"><scope>NeuralNet::Layer</scope><name>backpropagate</name></member>
+      <member refid="classNeuralNet_1_1Layer_1ad694814a98b7c48b1502054f56a1f9b6" prot="public" virt="non-virtual"><scope>NeuralNet::Layer</scope><name>backpropagate</name></member>
       <member refid="classNeuralNet_1_1Layer_1a21e7c6e3bfe027f34cc9c64454f414c4" prot="private" virt="non-virtual"><scope>NeuralNet::Layer</scope><name>biases</name></member>
-      <member refid="classNeuralNet_1_1Layer_1a74bc7f8e42d2918d5bb93e3b400cca21" prot="public" virt="non-virtual"><scope>NeuralNet::Layer</scope><name>forward_propagate</name></member>
-      <member refid="classNeuralNet_1_1Layer_1a8cddb1c030d43b6a9a606e53c489d37f" prot="public" virt="non-virtual"><scope>NeuralNet::Layer</scope><name>gradient_descent</name></member>
+      <member refid="classNeuralNet_1_1Layer_1aecefe03ceff96fd6652f62b46fe7ef09" prot="public" virt="non-virtual"><scope>NeuralNet::Layer</scope><name>forward_propagate</name></member>
+      <member refid="classNeuralNet_1_1Layer_1a645fc86eb170fb950b0e175dac74e9b7" prot="public" virt="non-virtual"><scope>NeuralNet::Layer</scope><name>gradient_descent</name></member>
       <member refid="classNeuralNet_1_1Layer_1a4ac3fd71b49705e41975d4f2a55980eb" prot="public" virt="non-virtual"><scope>NeuralNet::Layer</scope><name>Layer</name></member>
       <member refid="classNeuralNet_1_1Layer_1a07a11dc0120270973bba536bfa5513eb" prot="public" virt="non-virtual"><scope>NeuralNet::Layer</scope><name>Layer</name></member>
       <member refid="classNeuralNet_1_1Layer_1a4c948d1fb350db5508bf287a0b06ac37" prot="public" virt="non-virtual"><scope>NeuralNet::Layer</scope><name>Layer</name></member>

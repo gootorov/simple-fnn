@@ -4,6 +4,7 @@
     <compoundname>network.hpp</compoundname>
     <includes local="no">Eigen/Core</includes>
     <includes refid="layer_8hpp" local="yes">layer.hpp</includes>
+    <includedby refid="layer_8cpp" local="yes">/home/null/dev/cpp/neural_net/src/layer.cpp</includedby>
     <includedby refid="main_8cpp" local="yes">/home/null/dev/cpp/neural_net/src/main.cpp</includedby>
     <includedby refid="network_8cpp" local="yes">/home/null/dev/cpp/neural_net/src/network.cpp</includedby>
     <incdepgraph>
@@ -26,11 +27,11 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="17">
+      <node id="18">
         <label>/home/null/dev/cpp/neural_net/src/main.cpp</label>
         <link refid="main_8cpp"/>
       </node>
-      <node id="18">
+      <node id="19">
         <label>/home/null/dev/cpp/neural_net/src/network.cpp</label>
         <link refid="network_8cpp"/>
       </node>
@@ -41,6 +42,12 @@
         </childnode>
         <childnode refid="18" relation="include">
         </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>/home/null/dev/cpp/neural_net/src/layer.cpp</label>
+        <link refid="layer_8cpp"/>
       </node>
     </invincdepgraph>
     <innerclass refid="classNeuralNet_1_1Network" prot="public">NeuralNet::Network</innerclass>

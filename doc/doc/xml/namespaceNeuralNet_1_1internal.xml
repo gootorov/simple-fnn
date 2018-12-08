@@ -98,7 +98,7 @@
       </memberdef>
       </sectiondef>
     <briefdescription>
-<para>Contains helper functions used throughout the <ref refid="namespaceNeuralNet" kindref="compound">NeuralNet</ref> library. </para>    </briefdescription>
+<para>Contains helper functions used throughout the <ref refid="namespaceNeuralNet" kindref="compound">NeuralNet</ref> library that are not part of the public API. </para>    </briefdescription>
     <detaileddescription>
     </detaileddescription>
     <location file="/home/null/dev/cpp/neural_net/src/internal.cpp" line="9" column="1"/>

@@ -6,6 +6,19 @@
     <innerclass refid="classNeuralNet_1_1Network" prot="public">NeuralNet::Network</innerclass>
     <innernamespace refid="namespaceNeuralNet_1_1internal">NeuralNet::internal</innernamespace>
       <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="namespaceNeuralNet_1af08b67ff9676b8d40d67c7d6b82799bb" prot="public" static="no">
+        <type>Eigen::VectorXd</type>
+        <definition>typedef Eigen::VectorXd NeuralNet::Vec</definition>
+        <argsstring></argsstring>
+        <name>Vec</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/null/dev/cpp/neural_net/include/layer.hpp" line="8" column="1" bodyfile="/home/null/dev/cpp/neural_net/include/layer.hpp" bodystart="8" bodyend="-1"/>
+      </memberdef>
       <memberdef kind="typedef" id="namespaceNeuralNet_1a0f09da558f983d46b08d0cfaeb912864" prot="public" static="no">
         <type>Eigen::Array&lt; Eigen::VectorXd, Eigen::Dynamic, 1 &gt;</type>
         <definition>using NeuralNet::Gradient = typedef Eigen::Array&lt;Eigen::VectorXd, Eigen::Dynamic, 1&gt;</definition>
