@@ -26,11 +26,6 @@ private:
     /// the gradient scalar.
     double learning_rate{};
 
-    /// @brief Propagate the input vector throught the Network.
-    /// @param input Input vector, e.g. a MNIST image.
-    /// @return Propagated vector.
-    Vec forward_propagate(Vec input);
-
     /// @brief Given the output of the Network and the label,
     /// computes the output error backpropagates it.
     /// @param net_output Output of the Network, i.e. forward propagated input.
@@ -61,6 +56,11 @@ public:
     /// @param layers The dimensions of the layers in this Network.
     /// @param learning_rate The learning rate.
     Network(std::vector<std::size_t> layers, double learning_rate);
+
+    /// @brief Propagate the input vector throught the Network.
+    /// @param input Input vector, e.g. a MNIST image.
+    /// @return Propagated vector.
+    Vec forward_propagate(Vec input);
 
     /// @brief Given the training data and labels, the Network learns.
     /// @param training_data Training data, e.g. MNIST images.
