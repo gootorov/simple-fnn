@@ -1,2 +1,2 @@
-doc/specification
 build/*
+!build/.gitkeep
